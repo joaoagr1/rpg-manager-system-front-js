@@ -36,7 +36,8 @@ document.getElementById('authenticationForm').addEventListener('submit', async f
 
 
         var idEnvironment = localStorage.getItem('idEnvironment');
-        if (idEnvironment == 99) { console.log("Usuário e/ou senha incorretos");
+        console.log(idEnvironment);
+        if (idEnvironment == 99 || idEnvironment == null) { console.log("Usuário e/ou senha incorretos");
         }else{
             window.location.href = 'characterList.html';
         }

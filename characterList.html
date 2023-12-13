@@ -7,7 +7,7 @@
     <title>Página Principal</title>
     <style>
         body {
-            background: url('caminho/para/sua/imagem.jpg') no-repeat center center fixed;
+            background-color: rgb(65, 90, 90);
             background-size: cover;
             height: 100vh;
             margin: 0;
@@ -30,26 +30,27 @@
         }
 
         .table-container {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            width: 80%;
+            width: 55%;
             max-width: 800px;
-            margin-top: 20px;
+            margin-top: -70px;
             text-align: center;
+        }
+
+        .table-hover tbody tr.selected {
+            background-color: #878d94; /* Cor de seleção - altere conforme necessário */
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <h2>Bem-vindo à Página Principal</h2>
-</div>
-
 <div class="container">
     <div class="table-container">
-        <h3>Tabela de Personagens</h3>
+        <h3></h3>
         <table class="table table-bordered" id="characterTable">
             <thead>
                 <tr>
@@ -63,14 +64,14 @@
             <tbody id="characterTableBody"></tbody>
         </table>
         <div class="text-center">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#addCharacterModal">Adicionar Personagem</button>
-            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCharacterModal">Excluir Personagem</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#addCharacterModal">New Character</button>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCharacterModal">Delete</button>
         </div>
     </div>
 </div>
 
 <div class="footer">
-    <p>Rodapé da Página</p>
+    <p>Made with ♥ by João Rollo</p>
 </div>
 
 <!-- Modal para adicionar personagem -->
@@ -88,16 +89,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
-
-
-
-   
-
     // Função para preencher a tabela com dados da requisição
     function fetchCharacters() {
         var idEnvironment = localStorage.getItem('idEnvironment');
-    console.log(idEnvironment + "teste");
-    console.log(idEnvironment);
+        console.log(idEnvironment + "teste");
+        console.log(idEnvironment);
         // Substitua a URL abaixo pela sua URL de API
         const apiUrl = `http://localhost:8080/characters/user/${idEnvironment}`;
 
@@ -128,35 +124,36 @@
     window.onload = fetchCharacters;
 
     document.addEventListener('DOMContentLoaded', function () {
-            // Verifica se a variável específica não existe ou é nula
-            var idEnvironment = localStorage.getItem('idEnvironment');
+        // Verifica se a variável específica não existe ou é nula
+        var idEnvironment = localStorage.getItem('idEnvironment');
 
-            if (idEnvironment == 99) {
-                // Redireciona para outra página se a variável não existir ou for nula
-                window.location.href = 'index.html';
-            }  }
-        );
+        if (idEnvironment == 99) {
+            // Redireciona para outra página se a variável não existir ou for nula
+            window.location.href = 'index.html';
+        }
 
-        // Adicione ao seu arquivo JavaScript (characterList.js)
 
-document.addEventListener('DOMContentLoaded', function () {
-    // ... (seu código existente)
+        
+    });
 
+    document.addEventListener('DOMContentLoaded', function () {
     // Adiciona a classe 'table-hover' à tabela para permitir o efeito hover
-    document.querySelector('#characterTable').classList.add('table-hover');
+    const characterTable = document.querySelector('#characterTable');
+    characterTable.classList.add('table-hover');
 
-    // Adiciona ou remove a classe 'table-hover' das linhas da tabela ao passar o mouse
-    document.querySelectorAll('.table-hover tbody tr').forEach(row => {
-        row.addEventListener('mouseover', function () {
-            this.classList.add('table-hover');
-        });
+    // Adiciona ou remove a classe 'selected' das linhas da tabela ao clicar
+    characterTable.querySelectorAll('tbody tr').forEach(row => {
+        row.addEventListener('click', function () {
+            // Remove a classe 'selected' de todas as linhas antes de adicionar à linha clicada
+            characterTable.querySelectorAll('tbody tr.selected').forEach(selectedRow => {
+                selectedRow.classList.remove('selected');
+            });
 
-        row.addEventListener('mouseout', function () {
-            this.classList.remove('table-hover');
+            this.classList.toggle('selected');
         });
     });
 });
-
+    
 </script>
 
 </body>
