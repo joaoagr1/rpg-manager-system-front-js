@@ -88,10 +88,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
+
+   
+
     // Função para preencher a tabela com dados da requisição
     function fetchCharacters() {
+        var idEnvironment = localStorage.getItem('idEnvironment');
+    console.log(idEnvironment + "teste");
+    console.log(idEnvironment);
         // Substitua a URL abaixo pela sua URL de API
-        const apiUrl = 'http://localhost:8080/characters';
+        const apiUrl = `http://localhost:8080/characters/user/${idEnvironment}`;
 
         fetch(apiUrl)
             .then(response => response.json())

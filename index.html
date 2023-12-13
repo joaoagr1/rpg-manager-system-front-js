@@ -39,13 +39,13 @@
 
 <div class="login-container">
     <h2>Login</h2>
-    <form>
+    <form id="meuForm">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="user" required>
+            <input type="text" class="form-control" id="loginField" placeholder="user" required>
         </div>
         <div class="form-group">
             <div class="input-group">
-                <input type="password" class="form-control" placeholder="password" id="password" required>
+                <input type="password" class="form-control" id="passwordField" placeholder="password" id="password" required>
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">show</button>
                 </div>
@@ -91,10 +91,59 @@
 
 <script>
     function togglePassword() {
-        const passwordField = document.getElementById('password');
+        const passwordField = document.getElementById('passwordField');
         passwordField.type = (passwordField.type === 'password') ? 'text' : 'password';
     }
+
+    document.getElementById('meuForm').addEventListener('submit', async function (event) {
+        // Cancela o comportamento padrão de atualizar a página
+        event.preventDefault();
+
+        var loginRequest = document.getElementById('loginField').value;
+        var passwordRequest = document.getElementById('passwordField').value;
+
+        console.log(loginRequest);
+        console.log(passwordRequest);
+
+        try {
+            const response = await fetch(`http://localhost:8080/users/login?login=${loginRequest}&password=${passwordRequest}`);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            // Dependendo do tipo de resposta esperado (JSON, texto, etc.), você pode usar apropriadamente
+            const data = await response.json();
+
+            // Armazena o valor retornado no localStorage com a chave 'idEnviroment'
+            localStorage.setItem('idEnvironment', data);
+
+            console.log("ID do ambiente:", data);
+
+            // Continue com o restante do código usando data
+            // ...
+ 
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+        }
+
+
+        var idEnvironment = localStorage.getItem('idEnvironment');
+        if (idEnvironment == 99) { console.log("Usuário e/ou senha incorretos");
+        }else{
+            window.location.href = 'initial.html';
+        }
+        
+
+    });
+
+    
+
+
+
 </script>
+
+
 
 </body>
 </html>
