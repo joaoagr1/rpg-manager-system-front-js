@@ -4,48 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Login</title>
-    <style>
-        body {
-            background: url('caminho/para/sua/imagem.jpg') no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .login-container {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            width: 300px;
-            text-align: center;
-        }
-
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-    </style>
 </head>
 <body>
 
 <div class="login-container">
     <h2>Login</h2>
-    <form id="meuForm">
+    <form id="authenticationForm">
         <div class="form-group">
             <input type="text" class="form-control" id="loginField" placeholder="user" required>
         </div>
         <div class="form-group">
             <div class="input-group">
-                <input type="password" class="form-control" id="passwordField" placeholder="password" id="password" required>
+                <input type="password" class="form-control" id="passwordField" placeholder="password" required>
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">show</button>
                 </div>
@@ -56,12 +28,11 @@
     </form>
 </div>
 
-<!-- Modal para criar usuário -->
 <div class="modal fade" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="createUserModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createUserModalLabel">Criar Usuário</h5>
+                <h5 class="modal-title" id="createUserModalLabel">Register User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -74,11 +45,12 @@
                     <div class="form-group">
                         <input type="password" class="form-control" id="newPassword" placeholder="new pasword" required>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Criar</button>
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
                 </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <div class="footer">
@@ -88,110 +60,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script>
-    function togglePassword() {
-        const passwordField = document.getElementById('passwordField');
-        passwordField.type = (passwordField.type === 'password') ? 'text' : 'password';
-    }
-
-    document.getElementById('meuForm').addEventListener('submit', async function (event) {
-        // Cancela o comportamento padrão de atualizar a página
-        event.preventDefault();
-
-        var loginRequest = document.getElementById('loginField').value;
-        var passwordRequest = document.getElementById('passwordField').value;
-
-        console.log(loginRequest);
-        console.log(passwordRequest);
-
-        try {
-            const response = await fetch(`http://localhost:8080/users/login?login=${loginRequest}&password=${passwordRequest}`);
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            // Dependendo do tipo de resposta esperado (JSON, texto, etc.), você pode usar apropriadamente
-            const data = await response.json();
-
-            // Armazena o valor retornado no localStorage com a chave 'idEnviroment'
-            localStorage.setItem('idEnvironment', data);
-
-            console.log("ID do ambiente:", data);
-
-            // Continue com o restante do código usando data
-            // ...
- 
-        } catch (error) {
-            console.error('Erro na requisição:', error);
-        }
-
-
-        var idEnvironment = localStorage.getItem('idEnvironment');
-        if (idEnvironment == 99) { console.log("Usuário e/ou senha incorretos");
-        }else{
-            window.location.href = 'initial.html';
-        }
-        
-
-    });
-
-    
-
-
-    document.getElementById('createUserForm').addEventListener('submit', async function (event) {
-        // Cancela o comportamento padrão de atualizar a página
-        event.preventDefault();
-
-        var newLoginRequest = document.getElementById('newUser').value;
-        var newPasswordRequest = document.getElementById('newPassword').value;
-
-        const requestBody = {
-  login: newLoginRequest,
-  password: newPasswordRequest
-};
-
-// Configuração da requisição
-const requestOptions = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-    // Adicione outros cabeçalhos, se necessário
-  },
-  body: JSON.stringify(requestBody)
-};
-
-// URL da API
-const apiUrl = 'http://localhost:8080/users';
-
-// Realiza a requisição POST
-fetch(apiUrl, requestOptions)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Requisição POST bem-sucedida:', data);
-    // Faça algo com a resposta, se necessário
-  })
-  .catch(error => {
-    console.error('Erro na requisição POST:', error);
-  });
-        
-  location.reload();
-
-
-    });
-
-
-
-
-</script>
-
-
+<script src="scripts.js"></script>
 
 </body>
 </html>
