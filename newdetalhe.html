@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Detalhes do Personagem</title>
+    <style>
+        body {
+            background: url('caminho/para/sua/imagem.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header,
+        .footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .details-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 800px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .items-container,
+        .spells-container {
+            margin-top: 20px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .table th, .table td {
+            white-space: nowrap;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+        }
+
+        .table th, .table td {
+            border: 1px solid #dee2e6;
+        }
+
+        /* Estilo para esconder as descrições */
+        .description-hidden {
+            display: none;
+        }
+
+        /* Estilo para mostrar as descrições ao passar o mouse ou clicar */
+        .description-show {
+            display: block;
+        }
+
+        /* Estilo para a lista de perícias e salvaguardas */
+        .skills-list, .proficiencies-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-list li, .proficiencies-list li {
+            padding: 5px 0;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            margin-right: 5px;
+            color: #007bff; /* Cor azul Bootstrap padrão */
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h2>Detalhes do Personagem</h2>
+</div>
+
+<div class="container">
+    <div class="details-container">
+        <p><strong>Nome do Usuário:</strong> João123</p>
+        <p><strong>Nome do Personagem:</strong> Herói</p>
+        <p><strong>Classe:</strong> Guerreiro</p>
+        <p><strong>Raça:</strong> Humano</p>
+        <p><strong>Alinhamento:</strong> Neutro Bom</p>
+        <p><strong>Level:</strong> 10</p>
+
+        <!-- Botão para abrir o modal de edição -->
+        <button class="btn btn-primary" data-toggle="modal" data-target="#editCharacterModal">Editar Detalhes</button>
+
+        <!-- Tabelas de Items e Spells lado a lado -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="items-container">
+                    <h4>Items</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
+                            <tbody id="itemsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="spells-container">
+                    <h4>Spells</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
+                            <tbody id="spellsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo do Journal -->
+        <div class="form-group">
+            <label for="journal">Journal do Personagem</label>
+            <textarea class="form-control" id="journal" rows="4" readonly>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
+            </textarea>
+            <!-- Botão para abrir o modal de edição do Journal -->
+            <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Editar Journal</button>
+        </div>
+
+        <!-- Listas de Perícias e Salvaguardas -->
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Perícias</h4>
+                <ul class="skills-list">
+                    <li>Atletismo</li>
+                    <li>Furtividade</li>
+                    <li>Percepção</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h4>Salvaguardas com Proficiência</h4>
+                <ul class="proficiencies-list">
+                    <li>Força</li>
+                    <li>Destreza</li>
+                    <li>Constituição</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Rodapé da Página</p>
+</div>
+
+<!-- Modal de Edição do Personagem -->
+<div class="modal fade" id="editCharacterModal" tabindex="-1" role="dialog" aria-labelledby="editCharacterModalLabel" aria-hidden="true">
+    <!-- Conteúdo do modal vai aqui -->
+</div>
+
+<!-- Modal de Edição do Journal -->
+<div class="modal fade" id="editJournalModal" tabindex="-1" role="dialog" aria-labelledby="editJournalModalLabel" aria-hidden="true">
+    <!-- Conteúdo do modal vai aqui -->
+</div>
+
+<!-- Modal para exibir a descrição -->
+<div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="descriptionModalLabel">Descrição</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="descriptionContent"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Função para preencher a tabela de Items com dados da requisição
+    function fetchItems() {
+        // Substitua a URL abaixo pela sua URL de API
+        const apiUrl = 'http://localhost:8080/items/2';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const itemsTableBody = document.getElementById('itemsTableBody');
+
+                // Limpe a tabela antes de adicionar novos itens
+                itemsTableBody.innerHTML = '';
+
+                // Itere sobre os dados e preencha a tabela
+                data.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="item-name" data-toggle="modal" data-target="#descriptionModal" data-description="${item.description}">${item.name}</td>
+                    `;
+                    itemsTableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Erro ao obter dados de Items:', error));
+    }
+
+    // Função para preencher a tabela de Spells com dados da requisição
+    function fetchSpells() {
+        // Substitua a URL abaixo pela sua URL de API
+        const apiUrl = 'http://localhost:8080/spells/2';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const spellsTableBody = document.getElementById('spellsTableBody');
+
+                // Limpe a tabela antes de adicionar novos itens
+                spellsTableBody.innerHTML = '';
+
+                // Itere sobre os dados e preencha a tabela
+                data.forEach(spell => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="spell-name" data-toggle="modal" data-target="#descriptionModal" data-description="${spell.description}">${spell.name}</td>
+                    `;
+                    spellsTableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Erro ao obter dados de Spells:', error));
+    }
+
+    // Chame as funções para preencher as tabelas quando a página carregar
+    window.onload = function () {
+        fetchItems();
+        fetchSpells();
+    };
+
+    // Exibir a descrição no modal ao clicar no nome do item ou spell
+    $('#descriptionModal').on('show.bs.modal', function (event) {
+        const button = $(event.relatedTarget);
+        const description = button.data('description');
+        const modal = $(this);
+        modal.find('.modal-body #descriptionContent').text(description);
+    });
+</script>
+
+</body>
+</html>

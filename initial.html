@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Página Principal</title>
+    <style>
+        body {
+            background: url('caminho/para/sua/imagem.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header,
+        .footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .table-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 800px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h2>Bem-vindo à Página Principal</h2>
+</div>
+
+<div class="container">
+    <div class="table-container">
+        <h3>Tabela de Personagens</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Character Name</th>
+                    <th>Class</th>
+                    <th>Race</th>
+                    <th>Level</th>
+                </tr>
+            </thead>
+            <!-- Os dados da tabela serão preenchidos dinamicamente aqui -->
+            <tbody id="characterTableBody"></tbody>
+        </table>
+        <div class="text-center">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#addCharacterModal">Adicionar Personagem</button>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCharacterModal">Excluir Personagem</button>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Rodapé da Página</p>
+</div>
+
+<!-- Modal para adicionar personagem -->
+<div class="modal fade" id="addCharacterModal" tabindex="-1" role="dialog" aria-labelledby="addCharacterModalLabel" aria-hidden="true">
+    <!-- Conteúdo do modal vai aqui -->
+</div>
+
+<!-- Modal para excluir personagem -->
+<div class="modal fade" id="deleteCharacterModal" tabindex="-1" role="dialog" aria-labelledby="deleteCharacterModalLabel" aria-hidden="true">
+    <!-- Conteúdo do modal vai aqui -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Função para preencher a tabela com dados da requisição
+    function fetchCharacters() {
+        // Substitua a URL abaixo pela sua URL de API
+        const apiUrl = 'http://localhost:8080/characters';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const characterTableBody = document.getElementById('characterTableBody');
+
+                // Limpe a tabela antes de adicionar novos itens
+                characterTableBody.innerHTML = '';
+
+                // Itere sobre os dados e preencha a tabela
+                data.forEach(character => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${character.characterName}</td>
+                        <td>${character.class_}</td>
+                        <td>${character.race}</td>
+                        <td>${character.level}</td>
+                    `;
+                    characterTableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Erro ao obter dados:', error));
+    }
+
+    // Chame a função para preencher a tabela quando a página carregar
+    window.onload = fetchCharacters;
+</script>
+
+</body>
+</html>
