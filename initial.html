@@ -89,6 +89,8 @@
 
 <script>
 
+
+
    
 
     // Função para preencher a tabela com dados da requisição
@@ -124,6 +126,17 @@
 
     // Chame a função para preencher a tabela quando a página carregar
     window.onload = fetchCharacters;
+
+    document.addEventListener('DOMContentLoaded', function () {
+            // Verifica se a variável específica não existe ou é nula
+            var idEnvironment = localStorage.getItem('idEnvironment');
+
+            if (idEnvironment == 99) {
+                // Redireciona para outra página se a variável não existir ou for nula
+                window.location.href = 'index.html';
+            }  }
+        );
+
 </script>
 
 </body>

@@ -67,12 +67,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Novo Usuário" required>
+                <form id="createUserForm">
+                    <div id="" class="form-group">
+                        <input type="text" class="form-control" id="newUser" placeholder="new user" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Nova Senha" required>
+                        <input type="password" class="form-control" id="newPassword" placeholder="new pasword" required>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Criar</button>
                 </form>
@@ -138,6 +138,54 @@
     });
 
     
+
+
+    document.getElementById('createUserForm').addEventListener('submit', async function (event) {
+        // Cancela o comportamento padrão de atualizar a página
+        event.preventDefault();
+
+        var newLoginRequest = document.getElementById('newUser').value;
+        var newPasswordRequest = document.getElementById('newPassword').value;
+
+        const requestBody = {
+  login: newLoginRequest,
+  password: newPasswordRequest
+};
+
+// Configuração da requisição
+const requestOptions = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+    // Adicione outros cabeçalhos, se necessário
+  },
+  body: JSON.stringify(requestBody)
+};
+
+// URL da API
+const apiUrl = 'http://localhost:8080/users';
+
+// Realiza a requisição POST
+fetch(apiUrl, requestOptions)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Requisição POST bem-sucedida:', data);
+    // Faça algo com a resposta, se necessário
+  })
+  .catch(error => {
+    console.error('Erro na requisição POST:', error);
+  });
+        
+  location.reload();
+
+
+    });
+
 
 
 
