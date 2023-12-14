@@ -34,127 +34,108 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            width: 55%;
+            width: 75%;
             max-width: 800px;
             margin-top: -70px;
             text-align: center;
         }
 
-        .table-hover tbody tr.selected {
-            background-color: #878d94; /* Cor de seleção - altere conforme necessário */
+        .table-hover tbody tr:hover,
+        .table-hover tbody tr.row-hovered,
+        .table-hover tbody tr.row-clicked {
+            background-color: #c0c0c0;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="table-container">
+            <h3></h3>
+            <table class="table table-bordered table-hover" id="characterTable">
+                <thead>
+                    <tr>
+                        <th>Character Name</th>
+                        <th>Class</th>
+                        <th>Race</th>
+                        <th>Level</th>
+                    </tr>
+                </thead>
+                <tbody id="characterTableBody"></tbody>
+            </table>
+            <div class="text-center">
+                <button id="addCharacter" class="btn btn-primary" data-toggle="modal" data-target="#addCharacterModal">New Character</button>
+                <button id="deleteCharacter" class="btn btn-danger" data-toggle="modal" data-target="#deleteCharacterModal">Delete</button>
+                <button id="editCharacter" class="btn btn-warning" data-toggle="modal" data-target="#deleteCharacterModal">Edit</button>
 
-<div class="container">
-    <div class="table-container">
-        <h3></h3>
-        <table class="table table-bordered" id="characterTable">
-            <thead>
-                <tr>
-                    <th>Character Name</th>
-                    <th>Class</th>
-                    <th>Race</th>
-                    <th>Level</th>
-                </tr>
-            </thead>
-            <!-- Os dados da tabela serão preenchidos dinamicamente aqui -->
-            <tbody id="characterTableBody"></tbody>
-        </table>
-        <div class="text-center">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#addCharacterModal">New Character</button>
-            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCharacterModal">Delete</button>
+            </div>
         </div>
     </div>
-</div>
+    <div class="footer">
+        <p>Made with ♥ by João Rollo</p>
+    </div>
+    <div class="modal fade" id="addCharacterModal" tabindex="-1" role="dialog" aria-labelledby="addCharacterModalLabel" aria-hidden="true"></div>
+    <div class="modal fade" id="deleteCharacterModal" tabindex="-1" role="dialog" aria-labelledby="deleteCharacterModalLabel" aria-hidden="true"></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
 
-<div class="footer">
-    <p>Made with ♥ by João Rollo</p>
-</div>
+    document.getElementById("deleteCharacter").disabled = true;
+    document.getElementById("editCharacter").disabled = true;
 
-<!-- Modal para adicionar personagem -->
-<div class="modal fade" id="addCharacterModal" tabindex="-1" role="dialog" aria-labelledby="addCharacterModalLabel" aria-hidden="true">
-    <!-- Conteúdo do modal vai aqui -->
-</div>
 
-<!-- Modal para excluir personagem -->
-<div class="modal fade" id="deleteCharacterModal" tabindex="-1" role="dialog" aria-labelledby="deleteCharacterModalLabel" aria-hidden="true">
-    <!-- Conteúdo do modal vai aqui -->
-</div>
+        function fetchCharacters() {
+            var idEnvironment = localStorage.getItem('idEnvironment');
+            const apiUrl = `http://localhost:8080/characters/user/${idEnvironment}`;
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script>
-    // Função para preencher a tabela com dados da requisição
-    function fetchCharacters() {
-        var idEnvironment = localStorage.getItem('idEnvironment');
-        console.log(idEnvironment + "teste");
-        console.log(idEnvironment);
-        // Substitua a URL abaixo pela sua URL de API
-        const apiUrl = `http://localhost:8080/characters/user/${idEnvironment}`;
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const characterTableBody = document.getElementById('characterTableBody');
-
-                // Limpe a tabela antes de adicionar novos itens
-                characterTableBody.innerHTML = '';
-
-                // Itere sobre os dados e preencha a tabela
-                data.forEach(character => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${character.characterName}</td>
-                        <td>${character.class_}</td>
-                        <td>${character.race}</td>
-                        <td>${character.level}</td>
-                    `;
-                    characterTableBody.appendChild(row);
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const characterTableBody = document.getElementById('characterTableBody');
+                    characterTableBody.innerHTML = '';
+                    data.forEach(character => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${character.characterName}</td>
+                            <td>${character.class_}</td>
+                            <td>${character.race}</td>
+                            <td>${character.level}</td>
+                        `;
+                        characterTableBody.appendChild(row);
+                    });
                 });
-            })
-            .catch(error => console.error('Erro ao obter dados:', error));
-    }
-
-    // Chame a função para preencher a tabela quando a página carregar
-    window.onload = fetchCharacters;
-
-    document.addEventListener('DOMContentLoaded', function () {
-        // Verifica se a variável específica não existe ou é nula
-        var idEnvironment = localStorage.getItem('idEnvironment');
-
-        if (idEnvironment == 99) {
-            // Redireciona para outra página se a variável não existir ou for nula
-            window.location.href = 'index.html';
         }
 
+        $(document).ready(function(){
+    var clickedRow = null;
 
-        
+
+    $('#characterTable').on('click', 'tr', function(event) {
+        event.stopPropagation();
+        if (clickedRow != null) {
+            $(clickedRow).removeClass('row-clicked');
+        }
+        $(this).addClass('row-clicked');
+        clickedRow = this;
+
+        document.getElementById("deleteCharacter").disabled = false;
+        document.getElementById("editCharacter").disabled = false;
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-    // Adiciona a classe 'table-hover' à tabela para permitir o efeito hover
-    const characterTable = document.querySelector('#characterTable');
-    characterTable.classList.add('table-hover');
-
-    // Adiciona ou remove a classe 'selected' das linhas da tabela ao clicar
-    characterTable.querySelectorAll('tbody tr').forEach(row => {
-        row.addEventListener('click', function () {
-            // Remove a classe 'selected' de todas as linhas antes de adicionar à linha clicada
-            characterTable.querySelectorAll('tbody tr.selected').forEach(selectedRow => {
-                selectedRow.classList.remove('selected');
-            });
-
-            this.classList.toggle('selected');
-        });
+    $(document).on('click', function() {
+        if (clickedRow != null) {
+            $(clickedRow).removeClass('row-clicked');
+        }
+        clickedRow = null;
+        document.getElementById("deleteCharacter").disabled = true;
+        document.getElementById("editCharacter").disabled = true;
     });
+
+    fetchCharacters();
 });
-    
-</script>
 
+    </script>
 </body>
 </html>
