@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,6 +50,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="table-container">
@@ -65,9 +67,12 @@
                 <tbody id="characterTableBody"></tbody>
             </table>
             <div class="text-center">
-                <button id="addCharacter" class="btn btn-primary" data-toggle="modal" data-target="#addCharacterModal">New Character</button>
-                <button id="deleteCharacter" class="btn btn-danger" data-toggle="modal" data-target="#deleteCharacterModal">Delete</button>
-                <button id="editCharacter" class="btn btn-warning" data-toggle="modal" data-target="#deleteCharacterModal">Edit</button>
+                <button id="addCharacter" class="btn btn-primary" data-toggle="modal"
+                    data-target="#addCharacterModal">New Character</button>
+                <button id="infoCharacter" class="btn btn-success">Info</button>
+                <button id="deleteCharacter" class="btn btn-danger">Delete</button>
+
+
 
             </div>
         </div>
@@ -75,15 +80,18 @@
     <div class="footer">
         <p>Made with ♥ by João Rollo</p>
     </div>
-    <div class="modal fade" id="addCharacterModal" tabindex="-1" role="dialog" aria-labelledby="addCharacterModalLabel" aria-hidden="true"></div>
-    <div class="modal fade" id="deleteCharacterModal" tabindex="-1" role="dialog" aria-labelledby="deleteCharacterModalLabel" aria-hidden="true"></div>
+    <div class="modal fade" id="addCharacterModal" tabindex="-1" role="dialog" aria-labelledby="addCharacterModalLabel"
+        aria-hidden="true"></div>
+    <div class="modal fade" id="deleteCharacterModal" tabindex="-1" role="dialog"
+        aria-labelledby="deleteCharacterModalLabel" aria-hidden="true"></div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
 
-    document.getElementById("deleteCharacter").disabled = true;
-    document.getElementById("editCharacter").disabled = true;
+        document.getElementById("deleteCharacter").disabled = true;
+        document.getElementById("infoCharacter").disabled = true;
+
 
 
         function fetchCharacters() {
@@ -96,7 +104,13 @@
                     const characterTableBody = document.getElementById('characterTableBody');
                     characterTableBody.innerHTML = '';
                     data.forEach(character => {
+                        const idCharacter = character.character_id;
+                        localStorage.setItem('idCharacter', idCharacter);
+                        console.log(idCharacter)
                         const row = document.createElement('tr');
+                        row.addEventListener('click', function () {
+                            console.log(idCharacter);
+                        });
                         row.innerHTML = `
                             <td>${character.characterName}</td>
                             <td>${character.class_}</td>
@@ -108,34 +122,71 @@
                 });
         }
 
-        $(document).ready(function(){
-    var clickedRow = null;
+        $(document).ready(function () {
+            var clickedRow = null;
 
 
-    $('#characterTable').on('click', 'tr', function(event) {
-        event.stopPropagation();
-        if (clickedRow != null) {
-            $(clickedRow).removeClass('row-clicked');
-        }
-        $(this).addClass('row-clicked');
-        clickedRow = this;
+            $('#characterTable').on('click', 'tr', function (event) {
+                event.stopPropagation();
+                if (clickedRow != null) {
+                    $(clickedRow).removeClass('row-clicked');
+                }
+                $(this).addClass('row-clicked');
+                clickedRow = this;
 
-        document.getElementById("deleteCharacter").disabled = false;
-        document.getElementById("editCharacter").disabled = false;
-    });
+                document.getElementById("deleteCharacter").disabled = false;
+                document.getElementById("infoCharacter").disabled = false;
 
-    $(document).on('click', function() {
-        if (clickedRow != null) {
-            $(clickedRow).removeClass('row-clicked');
-        }
-        clickedRow = null;
-        document.getElementById("deleteCharacter").disabled = true;
-        document.getElementById("editCharacter").disabled = true;
-    });
+            });
 
-    fetchCharacters();
-});
+            $(document).on('click', function () {
+                if (clickedRow != null) {
+                    $(clickedRow).removeClass('row-clicked');
+                }
+                clickedRow = null;
+                document.getElementById("deleteCharacter").disabled = true;
+                document.getElementById("infoCharacter").disabled = true;
+
+            });
+
+            fetchCharacters();
+        });
+
+
+        document.getElementById('deleteCharacter').addEventListener('click', function () {
+            idCharacter = localStorage.getItem('idCharacter');
+            const apiUrl = `http://localhost:8080/characters/${idCharacter}`;
+
+            fetch(apiUrl, {
+                method: 'DELETE',
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    // Atualize a tabela ou faça algo após a exclusão bem-sucedida
+                })
+                .catch(error => {
+                    console.log('Houve um problema com a solicitação fetch: ' + error.message);
+                });
+            location.reload();
+
+        });
+
+
+        document.getElementById('infoCharacter').addEventListener('click', function () {
+            window.location.href = 'characterDetail.html';
+        });
+
+
+
+
 
     </script>
 </body>
+
 </html>
