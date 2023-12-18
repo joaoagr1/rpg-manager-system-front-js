@@ -7,7 +7,7 @@
     <title>Detalhes do Personagem</title>
     <style>
         body {
-            background: url('caminho/para/sua/imagem.jpg') no-repeat center center fixed;
+            background: url('login-bg.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             margin: 0;
@@ -17,7 +17,7 @@
 
         .header,
         .footer {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 10px;
             text-align: center;
         }
@@ -30,14 +30,14 @@
         }
 
         .details-container {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             width: 80%;
             max-width: 800px;
-            margin-top: 20px;
-            text-align: left;
+            margin-top: 25px;
+            text-align: center;
         }
 
         .items-container,
@@ -199,10 +199,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
+     idCharacter = localStorage.getItem('idCharacter');
+     console.log(idCharacter);
+
+    
     // Função para preencher a tabela de Items com dados da requisição
     function fetchItems() {
         // Substitua a URL abaixo pela sua URL de API
-        const apiUrl = 'http://localhost:8080/items/2';
+        idCharacter = localStorage.getItem('idCharacter');
+        const apiUrl = `http://localhost:8080/items/${idCharacter}`;
 
         fetch(apiUrl)
             .then(response => response.json())
