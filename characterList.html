@@ -7,8 +7,18 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Character Manager</title>
     <style>
+        .modal-content {
+            background: rgb(255, 252, 241);
+        }
+
+        #mensagemErro{
+    color: salmon;
+    font-weight: bolder;
+}
+
         body {
-            background: url('testetesteteste.jpg');                        background-size: cover;
+            background: url('testetesteteste.jpg');
+            background-size: cover;
             height: 100vh;
             margin: 0;
             display: flex;
@@ -17,11 +27,11 @@
 
         .header,
         .footer {
-            background-color: rgba(255, 255, 255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 10px;
             text-align: center;
             color: white;
-            font-weight:bolder;
+            font-weight: bolder;
             text-shadow: 2px 2px 4px rgb(0, 0, 0);
         }
 
@@ -36,7 +46,7 @@
             background: rgb(255, 252, 241);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0,0.7);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
             width: 75%;
             max-width: 800px;
             margin-top: -70px;
@@ -82,122 +92,123 @@
     <div class="footer">
         <p>Made with ♥ by João Rollo</p>
     </div>
-    
-  <!-- Modal -->
-  <div class="modal fade" id="addCharacterModal" tabindex="-1" role="dialog" aria-labelledby="addCharacterModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="characterModalLabel">Create Character</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-                <label for="characterName">Character Name</label>
-                <input type="text" class="form-control" id="characterName">
-              </div>
-            <div class="form-group">
-              <label for="background">Background</label>
-              <input type="text" class="form-control" id="background">
-            </div>
-            <div class="form-group">
-              <label for="alignment">Alignment</label>
-              <select class="form-control" id="alignment">
-                <option>Lawful Good</option>
-                <option>Neutral Good</option>
-                <option>Chaotic Good</option>
-                <option>Lawful Neutral</option>
-                <option>True Neutral</option>
-                <option>Chaotic Neutral</option>
-                <option>Lawful Evil</option>
-                <option>Neutral Evil</option>
-                <option>Chaotic Evil</option>
-                
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="class">Class</label>
-              <select class="form-control" id="class">
-                <!-- Substitua com as opções de classe de D&D 5ª edição -->
-                <option>Barbarian</option>
-                <option>Bard</option>
-                <option>Warlock</option>
-                <option>Cleric</option>
-                <option>Druid</option>
-                <option>Sorcerer</option>
-                <option>Fighter</option>
-                <option>Rogue</option>
-                <option>Wizard</option>
-                <option>Monk</option>
-                <option>Paladin</option>
-                <option>Ranger</option>
-                
+
+    <!-- Modal -->
+    <div class="modal fade" id="addCharacterModal" tabindex="-1" role="dialog" aria-labelledby="addCharacterModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="characterModalLabel">Create Character</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="characterName">Character Name</label>
+                            <input type="text" class="form-control" id="characterName">
+                        </div>
+                        <div class="form-group">
+                            <label for="background">Background</label>
+                            <input type="text" class="form-control" id="background">
+                        </div>
+                        <div class="form-group">
+                            <label for="alignment">Alignment</label>
+                            <select class="form-control" id="alignment">
+                                <option>Lawful Good</option>
+                                <option>Neutral Good</option>
+                                <option>Chaotic Good</option>
+                                <option>Lawful Neutral</option>
+                                <option>True Neutral</option>
+                                <option>Chaotic Neutral</option>
+                                <option>Lawful Evil</option>
+                                <option>Neutral Evil</option>
+                                <option>Chaotic Evil</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="class">Class</label>
+                            <select class="form-control" id="class">
+                                <!-- Substitua com as opções de classe de D&D 5ª edição -->
+                                <option>Barbarian</option>
+                                <option>Bard</option>
+                                <option>Warlock</option>
+                                <option>Cleric</option>
+                                <option>Druid</option>
+                                <option>Sorcerer</option>
+                                <option>Fighter</option>
+                                <option>Rogue</option>
+                                <option>Wizard</option>
+                                <option>Monk</option>
+                                <option>Paladin</option>
+                                <option>Ranger</option>
 
 
-        
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="race">Race</label>
-              <select class="form-control" id="race">
-                <!-- Substitua com as opções de raça de D&D 5ª edição -->
-                <option>Hill Dwarf</option>
-                <option>Mountain Dwarf</option>
-                <option>High Elf</option>
-                <option>Wood Elf</option>
-                <option>Drow</option>
-                <option>Eladrin</option>
-                <option>Lightfoot Halfling</option>
-                <option>Stout Halfling</option>
-                <option>Dragonborn</option>
-                <option>Forest Gnome</option>
-                <option>Rock Gnome</option>
-                <option>Half-Elf</option>
-                <option>Half-Orc</option>
-                <option>Tiefling</option>
 
-              </select>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="race">Race</label>
+                            <select class="form-control" id="race">
+                                <!-- Substitua com as opções de raça de D&D 5ª edição -->
+                                <option>Hill Dwarf</option>
+                                <option>Mountain Dwarf</option>
+                                <option>High Elf</option>
+                                <option>Wood Elf</option>
+                                <option>Drow</option>
+                                <option>Eladrin</option>
+                                <option>Lightfoot Halfling</option>
+                                <option>Stout Halfling</option>
+                                <option>Dragonborn</option>
+                                <option>Forest Gnome</option>
+                                <option>Rock Gnome</option>
+                                <option>Half-Elf</option>
+                                <option>Half-Orc</option>
+                                <option>Tiefling</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="level">Level</label>
+                            <select class="form-control" id="level">
+                                <!-- Opções de 1 a 20 -->
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                            </select>
+                        </div>
+                        <p id="mensagemErro"></p>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button id="createCharacterButtton" type="button" class="btn btn-primary">Create</button>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="level">Level</label>
-              <select class="form-control" id="level">
-                <!-- Opções de 1 a 20 -->
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-                <option>13</option>
-                <option>14</option>
-                <option>15</option>
-                <option>16</option>
-                <option>17</option>
-                <option>18</option>
-                <option>19</option>
-                <option>20</option>
-              </select>
-            </div>
-            
-          </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button id="createCharacterButtton" type="button" class="btn btn-primary">Create</button>
-        </div>
-      </div>
     </div>
-  </div>
-  
+
     </div>
     <div class="modal fade" id="deleteCharacterModal" tabindex="-1" role="dialog"
         aria-labelledby="deleteCharacterModalLabel" aria-hidden="true"></div>
@@ -272,41 +283,41 @@
 
 
         function confirmarExclusao() {
-      // A função confirm exibe uma caixa de diálogo com os botões OK e Cancelar
-      var confirmacao = confirm("Are you sure you want to delete this character?");
+            // A função confirm exibe uma caixa de diálogo com os botões OK e Cancelar
+            var confirmacao = confirm("Are you sure you want to delete this character?");
 
-      // Se o usuário clicar em OK, a função retorna true; caso contrário, retorna false
-      if (confirmacao) {
-        // Coloque aqui o código para excluir o item
-            idCharacter = localStorage.getItem('idCharacter');
-            const apiUrl = `http://localhost:8080/characters/${idCharacter}`;
+            // Se o usuário clicar em OK, a função retorna true; caso contrário, retorna false
+            if (confirmacao) {
+                // Coloque aqui o código para excluir o item
+                idCharacter = localStorage.getItem('idCharacter');
+                const apiUrl = `http://localhost:8080/characters/${idCharacter}`;
 
-            fetch(apiUrl, {
-                method: 'DELETE',
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
+                fetch(apiUrl, {
+                    method: 'DELETE',
                 })
-                .then(data => {
-                    console.log(data);
-                    // Atualize a tabela ou faça algo após a exclusão bem-sucedida
-                })
-                .catch(error => {
-                    console.log('Houve um problema com a solicitação fetch: ' + error.message);
-                });
-                setTimeout(function(){
-   window.location.reload();
-}, 400);
-        };
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log(data);
+                        // Atualize a tabela ou faça algo após a exclusão bem-sucedida
+                    })
+                    .catch(error => {
+                        console.log('Houve um problema com a solicitação fetch: ' + error.message);
+                    });
+                setTimeout(function () {
+                    window.location.reload();
+                }, 400);
+            };
 
-        alert("Character successfully deleted."); // Apenas um exemplo, substitua por sua lógica de exclusão real
-      }
-    
+            alert("Character successfully deleted."); // Apenas um exemplo, substitua por sua lógica de exclusão real
+        }
 
-        
+
+
 
         document.getElementById('infoCharacter').addEventListener('click', function () {
             window.location.href = 'characterDetail.html';
@@ -314,57 +325,77 @@
 
 
 
-    document.getElementById('createCharacterButtton').addEventListener('click', function(){
-       
-        var characterNamePost = document.getElementById('characterName').value;
-        var backgroundPost = document.getElementById('background').value;
-        var alignmentPost = document.getElementById('alignment').value;
-        var classPost = document.getElementById('class').value;
-        var racePost = document.getElementById('race').value;
-        var levelPost = document.getElementById('level').value;
+        document.getElementById('createCharacterButtton').addEventListener('click', function () {
 
-        console.log(characterNamePost)
-        console.log(backgroundPost)
-        console.log(alignmentPost)
-        console.log(classPost)
-        console.log(racePost)
-        console.log(levelPost)
+            var characterNamePost = document.getElementById('characterName').value;
+            var backgroundPost = document.getElementById('background').value;
+            var alignmentPost = document.getElementById('alignment').value;
+            var classPost = document.getElementById('class').value;
+            var racePost = document.getElementById('race').value;
+            var levelPost = document.getElementById('level').value;
+            var idEnvironment = localStorage.getItem('idEnvironment');
 
-        var idEnvironment = localStorage.getItem('idEnvironment');
-
-        var data = {
-  characterName: characterNamePost,
-  background: backgroundPost,
-  alignment: alignmentPost,
-  class_: classPost,
-  race: racePost,
-  level: levelPost,
-  user_id: idEnvironment
-};
-
-// Configuração da requisição
-var requestOptions = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json' // Indica que estamos enviando dados em formato JSON
-    // Adicione outros cabeçalhos conforme necessário
-  },
-  body: JSON.stringify(data) // Converte o objeto JavaScript para uma string JSON
-};
-
-// Substitua a URL do exemplo pela URL real para onde você deseja enviar os dados
-var url = 'http://127.0.0.1:8080/characters';
-
-// Realiza a requisição Fetch
-fetch(url, requestOptions)
-  .then(response => response.json()) // Converte a resposta para JSON
-  .then(data => console.log(data)) // Exibe a resposta no console (pode ser ajustado conforme necessário)
-  .catch(error => console.error('Erro:', error));
+            var regex = /^[A-Za-z\s]+$/;
 
 
-  window.location.reload();
+            // Agora você pode validar o valor do campo usando a expressão regular
+            if (regex.test(characterNamePost)) {
+                console.log('Validação bem-sucedida!');
 
-    }, 1000);
+
+                var data = {
+                characterName: characterNamePost,
+                background: backgroundPost,
+                alignment: alignmentPost,
+                class_: classPost,
+                race: racePost,
+                level: levelPost,
+                user_id: idEnvironment
+            };
+
+            // Configuração da requisição
+            var requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json' // Indica que estamos enviando dados em formato JSON
+                    // Adicione outros cabeçalhos conforme necessário
+                },
+                body: JSON.stringify(data) // Converte o objeto JavaScript para uma string JSON
+            };
+
+            // Substitua a URL do exemplo pela URL real para onde você deseja enviar os dados
+            var url = 'http://127.0.0.1:8080/characters';
+
+            // Realiza a requisição Fetch
+            fetch(url, requestOptions)
+                .then(response => response.json()) // Converte a resposta para JSON
+                .then(data => console.log(data)) // Exibe a resposta no console (pode ser ajustado conforme necessário)
+                .catch(error => console.error('Erro:', error));
+
+
+                setTimeout(function() {
+    window.location.reload();
+}, 900); // O tempo é especificado em milissegundos, então 5000 milissegundos são 5 segundos
+
+
+
+
+            } else {
+                console.log('Validação falhou. Por favor, insira apenas letras e espaços.');
+                var elementoMensagemErro = document.getElementById('mensagemErro');
+                elementoMensagemErro.textContent = "Invalid name for character...";
+
+
+
+
+            }
+
+           
+
+
+            
+
+        }, 9000);
 
 
 

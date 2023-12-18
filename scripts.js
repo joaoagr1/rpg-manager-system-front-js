@@ -54,6 +54,24 @@ document.getElementById('createUserForm').addEventListener('submit', async funct
     var newLoginRequest = document.getElementById('newUser').value;
     var newPasswordRequest = document.getElementById('newPassword').value;
 
+    // Expressões regulares para validação
+    var regexNome = /^[A-Za-z]+$/; // Permite apenas letras sem espaços
+    var regexSenha = /^\S+$/; // Não permite espaços
+
+    // Valida o nome e a senha
+    if (!regexNome.test(newLoginRequest)) {
+        console.log('Validação falhou. O nome deve conter apenas letras sem espaços.');
+        var elementoMensagemErro = document.getElementById('mensagemErroPost');
+        elementoMensagemErro.textContent = "Username must be letters only, no spaces.";
+        return;
+    }
+    if (!regexSenha.test(newPasswordRequest)) {
+        console.log('Validação falhou. A senha não deve conter espaços.');
+        var elementoMensagemErro = document.getElementById('mensagemErroPost');
+        elementoMensagemErro.textContent = "Password must not contain spaces.";
+        return;
+    }
+
     const requestBody = {
         login: newLoginRequest,
         password: newPasswordRequest
@@ -88,9 +106,9 @@ document.getElementById('createUserForm').addEventListener('submit', async funct
             console.error('Erro na requisição POST:', error);
         });
 
-
     location.reload();
 });
+
 
 
 
