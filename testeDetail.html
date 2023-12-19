@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Detalhes do Personagem</title>
   <style>
     body {
@@ -100,6 +101,48 @@
             font-weight: bolder;
             text-shadow: 2px 2px 4px rgb(0, 0, 0);
         }
+
+      #atributosInfo{
+        width: 200px;
+        padding: 6px;
+        padding-left: 20px;
+        padding-top: 15px;
+        margin-left: 0px;
+
+      }
+#journalInfo{
+  width: 437px;
+  margin: 0;
+  padding: 10px;
+  min-height: 280px;
+  max-height: 2800px;
+}
+
+#journal{
+  height: 160px;
+  max-height: 160px;
+  min-height: 100px;
+}
+label{
+  font-weight: bold;
+}
+
+.form-control{
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.fa{
+  margin-bottom: 8px;
+  margin-right: 10px;
+  padding: 0px;
+}
+
+#editSpells:focus {
+  box-shadow: none;
+  
+}
+
   </style>
 </head>
 
@@ -149,6 +192,7 @@
           <label for="charisma">Level:</label>
           <span>14</span>
         </div>
+        
 
       </div>
 
@@ -161,7 +205,9 @@
             <table class="table table-hover table-borderless">
               <thead>
                 <tr>
-                  <th>Items</th>
+                  <th>Items <button id="editSpells" class="btn">
+                    <i class="fa fa-cog"></i>
+                  </button></th>
                 </tr>
               </thead>
               <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
@@ -187,7 +233,73 @@
         </div>
       </div>
     </div>
-    <div class="character-sheet">
+    <div  class="row">
+      <div  class="col-md-4">
+        <div  class="items-container wd-1">
+          <!-- aqui vem os atributos -->
+          <div id="atributosInfo" class="character-sheet">
+            <h2 class="text-center"></h2>
+      
+            <div class="attribute">
+              <label for="strength">Strength:</label>
+              <span>16</span>
+            </div>
+      
+            <div class="attribute">
+              <label for="dexterity">Dexterity:</label>
+              <span>14</span>
+            </div>
+      
+            <div class="attribute">
+              <label for="constitution">Constitution:</label>
+              <span>12</span>
+            </div>
+      
+            <div class="attribute">
+              <label for="intelligence">Intelligence:</label>
+              <span>10</span>
+            </div>
+      
+            <div class="attribute">
+              <label for="wisdom">Wisdom:</label>
+              <span>8</span>
+            </div>
+      
+            <div class="attribute">
+              <label for="charisma">Charisma:</label>
+              <span>14</span>
+            </div>
+      
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div  class="items-container">
+          <!-- aqui vem os atributos -->
+          <div id="journalInfo" class="character-sheet">
+            <div class="form-group">
+              <center><label for="journal">Character Journal </label></center>
+              <textarea class="form-control" id="journal" rows="4" readonly>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
+              </textarea>
+               <!-- Botão para abrir o modal de edição do Journal  -->
+              <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Edit</button>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    
+
+
+
+
+    <!-- <div class="character-sheet">
       <h2 class="text-center"></h2>
 
       <div class="attribute">
@@ -220,7 +332,18 @@
         <span>14</span>
       </div>
 
-    </div>
+    </div> -->
+
+
+    <!-- <div class="form-group">
+      <label for="journal">Journal do Personagem</label>
+      <textarea class="form-control" id="journal" rows="4" readonly>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
+      </textarea>
+       Botão para abrir o modal de edição do Journal 
+      <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Editar Journal</button>
+  </div> -->
+
 
 
 
