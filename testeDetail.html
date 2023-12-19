@@ -2,320 +2,343 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Detalhes do Personagem</title>
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Detalhes do Personagem</title>
+  <style>
+    body {
+      background: url(list-bg.jpg)no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+    }
 
-      body{
-        background: url(loginiablur1.jpg)no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-      }
-
-      .container{
-        max-width: 700px;
-        margin-top: 30px;
-      }
+    .container {
+      max-width: 700px;
+      margin-top: 30px;
+    }
 
 
-      #img-containeer{
-        display: flex; /* Torna a div um contêiner flexível */
-            justify-content: center; /* Centraliza no eixo X */
-            align-items: center;         
-      }
 
-      .character-sheet {
-            background-color: #ffffffbd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            padding: 4px;
-            width: 300px;
-            padding-left: 80px;
-            margin-left: 15px;
-            min-height: 240px;
-        }
-        .character-sheet img {
-          width: 50%; /* A imagem ocupa 100% da largura da div */
-            
-        }
 
-        .attribute {
-            margin-bottom: 10px;
-        }
+    .character-sheet {
+      background-color: #ffffff91;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 4px;
+      width: 300px;
+      margin-left: 15px;
+      min-height: 240px;
+      width: 100%;
+      height: 100%;
+    }
 
-        .attribute label {
-            font-weight: bold;
-            display: inline-block;
-            width: 100px;
-        }
 
-        .attribute span {
-            display: inline-block;
-            width: 50px;
-            text-align: center;
-        }
-        .container{
-          min-height: 200px;
-        }
-    </style>
+
+    .character-sheet img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: 293px;
+      padding: 100;
+      border-radius: 10px;
+
+
+
+    }
+
+
+
+    .attribute {
+      margin-bottom: 10px;
+    }
+
+    .attribute label {
+      font-weight: bold;
+      display: inline-block;
+      width: 100px;
+    }
+
+    .attribute span {
+      display: inline-block;
+      width: 50px;
+      text-align: center;
+    }
+
+    .container {
+      min-height: 200px;
+    }
+
+    #informations {
+      width: 250px;
+      padding-left: 14px;
+
+    }
+
+    #imageCharacter {
+      width: 400px;
+      
+    }
+
+    table{
+      background-color: #ffffff91;    }
+  </style>
 </head>
 
 <body>
 
-    <div class="header">
-        <!-- Conteúdo do cabeçalho aqui se necessário -->
-    </div>
+  <div class="header">
+    <!-- Conteúdo do cabeçalho aqui se necessário -->
+  </div>
 
-    <div class="container">
-                    <!-- Tabelas de Items e Spells lado a lado -->
-            <div class="row">
-              <div class="character-sheet img-container">
-                <!-- INSERIR IMAGEM -->
-                <img src="https://i.pinimg.com/564x/65/60/00/6560002a473d882344e979bff9285e05.jpg" alt="Imagem Exemplo">
+  <div class="container">
+    <!-- Tabelas de Items e Spells lado a lado -->
+    <div class="row">
+      <div id="imageCharacter" class="character-sheet img-container">
+        <!-- INSERIR IMAGEM -->
+        <img src="https://i.pinimg.com/564x/65/60/00/6560002a473d882344e979bff9285e05.jpg" alt="Imagem Exemplo">
 
-            </div>
-                <div class="character-sheet">
-                  <h2 class="text-center"></h2>
-          
-                  <div class="attribute">
-                      <label for="strength">Strength:</label>
-                      <span>16</span>
-                  </div>
-          
-                  <div class="attribute">
-                      <label for="dexterity">Dexterity:</label>
-                      <span>14</span>
-                  </div>
-          
-                  <div class="attribute">
-                      <label for="constitution">Constitution:</label>
-                      <span>12</span>
-                  </div>
-          
-                  <div class="attribute">
-                      <label for="intelligence">Intelligence:</label>
-                      <span>10</span>
-                  </div>
-          
-                  <div class="attribute">
-                      <label for="wisdom">Wisdom:</label>
-                      <span>8</span>
-                  </div>
-          
-                  <div class="attribute">
-                      <label for="charisma">Charisma:</label>
-                      <span>14</span>
-                  </div>
-          
-              </div>
-          
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                  <div class="items-container">
-                      <h4></h4>
-                      <div class="table-responsive">
-                          <table class="table table-hover table-bordered">
-                              <thead>
-                                  <tr>
-                                      <th>Items</th>
-                                  </tr>
-                              </thead>
-                              <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
-                              <tbody id="itemsTableBody"></tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-6">
-                  <div class="spells-container">
-                      <h4></h4>
-                      <div class="table-responsive">
-                          <table class="table table-hover table-bordered">
-                              <thead>
-                                  <tr>
-                                      <th>Spells</th>
-                                  </tr>
-                              </thead>
-                              <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
-                              <tbody id="spellsTableBody"></tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-            <div class="character-sheet">
-              <h2 class="text-center"></h2>
-      
-              <div class="attribute">
-                  <label for="strength">Strength:</label>
-                  <span>16</span>
-              </div>
-      
-              <div class="attribute">
-                  <label for="dexterity">Dexterity:</label>
-                  <span>14</span>
-              </div>
-      
-              <div class="attribute">
-                  <label for="constitution">Constitution:</label>
-                  <span>12</span>
-              </div>
-      
-              <div class="attribute">
-                  <label for="intelligence">Intelligence:</label>
-                  <span>10</span>
-              </div>
-      
-              <div class="attribute">
-                  <label for="wisdom">Wisdom:</label>
-                  <span>8</span>
-              </div>
-      
-              <div class="attribute">
-                  <label for="charisma">Charisma:</label>
-                  <span>14</span>
-              </div>
-      
-          </div>
-      
-          
-
+      </div>
+      <div id="informations" class="character-sheet">
+        <h2 class="text-center"></h2>
+        <p></p>
+        <div class="attribute">
+          <label for="strength">Character Name</label>
+          <span>Johny Rolo</span>
         </div>
 
-        
-    </div>
-
-    
-
-    
-
-    <!-- Modal para exibir a descrição -->
-    <div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="descriptionModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="descriptionModalLabel">Descrição</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p id="descriptionContent"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                </div>
-                
-            </div>
-            
+        <div class="attribute">
+          <label for="dexterity">Alignment:</label>
+          <span>14</span>
         </div>
 
-        
+        <div class="attribute">
+          <label for="constitution">Race:</label>
+          <span>Elf</span>
+        </div>
+
+        <div class="attribute">
+          <label for="intelligence">Class:</label>
+          <span>Warrior</span>
+        </div>
+
+        <div class="attribute">
+          <label for="wisdom">background:</label>
+          <span>Outlander</span>
+        </div>
+
+        <div class="attribute">
+          <label for="charisma">Level:</label>
+          <span>14</span>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="items-container">
+          <h4></h4>
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th>Items</th>
+                </tr>
+              </thead>
+              <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
+              <tbody id="itemsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="spells-container">
+          <h4></h4>
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th>Spells</th>
+                </tr>
+              </thead>
+              <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
+              <tbody id="spellsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="character-sheet">
+      <h2 class="text-center"></h2>
+
+      <div class="attribute">
+        <label for="strength">Strength:</label>
+        <span>16</span>
+      </div>
+
+      <div class="attribute">
+        <label for="dexterity">Dexterity:</label>
+        <span>14</span>
+      </div>
+
+      <div class="attribute">
+        <label for="constitution">Constitution:</label>
+        <span>12</span>
+      </div>
+
+      <div class="attribute">
+        <label for="intelligence">Intelligence:</label>
+        <span>10</span>
+      </div>
+
+      <div class="attribute">
+        <label for="wisdom">Wisdom:</label>
+        <span>8</span>
+      </div>
+
+      <div class="attribute">
+        <label for="charisma">Charisma:</label>
+        <span>14</span>
+      </div>
+
     </div>
 
-    
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-        // Chame as funções para preencher as tabelas quando a página carregar
-        window.onload = function () {
-            fetchProfileData();
-            fetchItems();
-            fetchSpells();
-            
-        };
+  </div>
 
-        function fetchProfileData() {
-            // Substitua a URL abaixo pela sua URL de API
-            idCharacter = localStorage.getItem('idCharacter');
-            const apiUrl = `http://localhost:8080/characters/${idCharacter}`;
 
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    // Seus detalhes de personagem aqui
-                })
-                .catch(error => console.error('Erro ao obter dados do perfil:', error));
-        }
+  </div>
 
-        function fetchItems() {
-            // Substitua a URL abaixo pela sua URL de API
-            idCharacter = localStorage.getItem('idCharacter');
-            const apiUrl = `http://localhost:8080/items/${idCharacter}`;
 
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const itemsTableBody = document.getElementById('itemsTableBody');
 
-                    // Limpe a tabela antes de adicionar novos itens
-                    itemsTableBody.innerHTML = '';
 
-                    // Itere sobre os dados e preencha a tabela
-                    data.forEach(item => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
+
+  <!-- Modal para exibir a descrição -->
+  <div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="descriptionModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="descriptionModalLabel">Descrição</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="descriptionContent"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Chame as funções para preencher as tabelas quando a página carregar
+    window.onload = function () {
+      fetchProfileData();
+      fetchItems();
+      fetchSpells();
+
+    };
+
+    function fetchProfileData() {
+      // Substitua a URL abaixo pela sua URL de API
+      idCharacter = localStorage.getItem('idCharacter');
+      const apiUrl = `http://localhost:8080/characters/${idCharacter}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // Seus detalhes de personagem aqui
+        })
+        .catch(error => console.error('Erro ao obter dados do perfil:', error));
+    }
+
+    function fetchItems() {
+      // Substitua a URL abaixo pela sua URL de API
+      idCharacter = localStorage.getItem('idCharacter');
+      const apiUrl = `http://localhost:8080/items/${idCharacter}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const itemsTableBody = document.getElementById('itemsTableBody');
+
+          // Limpe a tabela antes de adicionar novos itens
+          itemsTableBody.innerHTML = '';
+
+          // Itere sobre os dados e preencha a tabela
+          data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
                             <td class="item-name" data-toggle="modal" data-target="#descriptionModal" data-description="${item.description}">${item.name}</td>
                         `;
-                        itemsTableBody.appendChild(row);
-                    });
-                })
-                .catch(error => console.error('Erro ao obter dados de Items:', error));
-        }
+            itemsTableBody.appendChild(row);
+          });
+        })
+        .catch(error => console.error('Erro ao obter dados de Items:', error));
+    }
 
-        function fetchSpells() {
-            // Substitua a URL abaixo pela sua URL de API
-            idCharacter = localStorage.getItem('idCharacter');
-            const apiUrl = `http://localhost:8080/spells/${idCharacter}`;
+    function fetchSpells() {
+      // Substitua a URL abaixo pela sua URL de API
+      idCharacter = localStorage.getItem('idCharacter');
+      const apiUrl = `http://localhost:8080/spells/${idCharacter}`;
 
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const spellsTableBody = document.getElementById('spellsTableBody');
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const spellsTableBody = document.getElementById('spellsTableBody');
 
-                    // Limpe a tabela antes de adicionar novos itens
-                    spellsTableBody.innerHTML = '';
+          // Limpe a tabela antes de adicionar novos itens
+          spellsTableBody.innerHTML = '';
 
-                    // Itere sobre os dados e preencha a tabela
-                    data.forEach(spell => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
+          // Itere sobre os dados e preencha a tabela
+          data.forEach(spell => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
                             <td class="spell-name" data-toggle="modal" data-target="#descriptionModal" data-description="${spell.description}">${spell.name}</td>
                         `;
-                        spellsTableBody.appendChild(row);
-                    });
-                })
-                .catch(error => console.error('Erro ao obter dados de Spells:', error));
-        }
+            spellsTableBody.appendChild(row);
+          });
+        })
+        .catch(error => console.error('Erro ao obter dados de Spells:', error));
+    }
 
-        function fetchJournal() {
-            // Substitua a URL abaixo pela sua URL de API
-            idCharacter = localStorage.getItem('idCharacter');
-            const apiUrl = `http://localhost:8080/journal/${idCharacter}`;
+    function fetchJournal() {
+      // Substitua a URL abaixo pela sua URL de API
+      idCharacter = localStorage.getItem('idCharacter');
+      const apiUrl = `http://localhost:8080/journal/${idCharacter}`;
 
-            fetch(apiUrl)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('journal').textContent = data;
-                })
-                .catch(error => console.error('Erro ao obter dados do Journal:', error));
-        }
+      fetch(apiUrl)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('journal').textContent = data;
+        })
+        .catch(error => console.error('Erro ao obter dados do Journal:', error));
+    }
 
-        // Exibir a descrição no modal ao clicar no nome do item ou spell
-        $('#descriptionModal').on('show.bs.modal', function (event) {
-            const button = $(event.relatedTarget);
-            const description = button.data('description');
-            const modal = $(this);
-            modal.find('.modal-body #descriptionContent').text(description);
-        });
-    </script>
+    // Exibir a descrição no modal ao clicar no nome do item ou spell
+    $('#descriptionModal').on('show.bs.modal', function (event) {
+      const button = $(event.relatedTarget);
+      const description = button.data('description');
+      const modal = $(this);
+      modal.find('.modal-body #descriptionContent').text(description);
+    });
+  </script>
 
 </body>
 
