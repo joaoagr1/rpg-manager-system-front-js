@@ -176,6 +176,17 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
       
 }
 
+#attributeTable{
+  /* background-color: black; */
+  margin-right: -50px;
+  margin-left: -13px;
+}
+
+#featuresInfo{
+  margin-top: 8px;
+  margin-left: 0px;
+}
+
   </style>
 </head>
 
@@ -234,10 +245,10 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 
     </div>
     <div class="row">
-      <div class="col-md-6">
+      <div id="attributeTable" class="col-md-6">
         
-          <div class="attributeMod">
-            <table class="table table-borderless">
+          <div  class="attributeMod">
+            <table class="table table-borderless character-sheet">
               <thead>
                   <tr>
                       <th>Attribute</th>
@@ -259,11 +270,11 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
             <table class="table table-hover table-borderless character-table" >
               <thead>
                 <tr>
-                  <th>Spells</th>
+                  <th>Items</th>
                 </tr>
               </thead>
               <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
-              <tbody id="spellsTableBody"></tbody>
+              <tbody id="itemsTableBody"></tbody>
             </table>
           
         </div>
@@ -308,6 +319,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
           <!-- aqui vem os atributos -->
           <div id="journalInfo" class="character-sheet">
             <div class="form-group">
+              <p></p>
               <center><label for="journal">Character Journal </label></center>
               <textarea class="form-control" id="journal" rows="4" readonly>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
@@ -328,32 +340,30 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
               <table class="table table-hover table-borderless character-table">
                 <thead>
                   <tr>
-                    <th>Items <button id="editSpells" class="btn">
+                    <th>Spells <button id="editSpells" class="btn">
                       <i class="fa fa-cog"></i>
                     </button></th>
                   </tr>
                 </thead>
                 <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
-                <tbody id="itemsTableBody"></tbody>
+                <tbody id="spellsTableBody"></tbody>
               </table>
             
               
           </div>
         </div>
         <div class="col-md-6">
-          <div class="spells-container">
-            <h4></h4>
-            <div class="table-responsive">
-              <table class="table table-hover table-borderless">
-                <thead>
-                  <tr>
-                    <th>Spells</th>
-                  </tr>
-                </thead>
-                <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
-                <tbody id="spellsTableBody"></tbody>
-              </table>
-            </div>
+          <div id="featuresInfo" class="character-sheet">
+            <div class="form-group">
+              <p></p>
+              <center><label for="journal">Features </label></center>
+              <textarea class="form-control" id="journal" rows="4" readonly>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
+              </textarea>
+               <!-- Botão para abrir o modal de edição do Journal  -->
+              <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Edit</button>
+          </div>
+          </div>
           </div>
         </div>
       </div>
