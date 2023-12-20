@@ -149,14 +149,27 @@ label{
   width: 100px  ;
 }
 
+.div-tabela{
+  margin-top: -6px;
+  max-height: 300px;
+overflow: scroll;
+border-radius: 10px;
+overflow-x: hidden;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
 #div-tabela{
   max-height: 300px;
 overflow: scroll;
 border-radius: 10px;
 overflow-x: hidden;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-
+min-height: 332px;
+margin-top: 8px;
+padding-top: -100;
 }
+
+
 
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
@@ -264,10 +277,10 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
       </div>
       <div class="col-md-6">
         
-        <div class="spells-container">
+        <div id="div-tabela">
           <h4></h4>
           
-            <table class="table table-hover table-borderless character-table" >
+            <table class="table table-hover table-borderless character-table div-tabela" >
               <thead>
                 <tr>
                   <th>Items</th>
@@ -282,7 +295,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     </div>
     <div  class="row">
       <div  class="col-md-4">
-        <div id="div-tabela"  class="items-container wd-1">
+        <div id="div-tabela"  class="items-container wd-1 div-tabela">
           <table class="table table-borderless">
             <thead>
                 <tr>
