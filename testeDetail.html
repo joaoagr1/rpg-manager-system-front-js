@@ -25,7 +25,7 @@
     .character-sheet {
       background: rgba(255, 252, 241, 0.795);
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
       padding: 4px;
       width: 00px;
       margin-left: 15px;
@@ -84,7 +84,8 @@
     table{
       background: rgba(255, 252, 241, 0.795);
       border-radius: 10px;
-      border: none;
+      
+      
    }
 
    td{
@@ -153,7 +154,7 @@ label{
 overflow: scroll;
 border-radius: 10px;
 overflow-x: hidden;
-
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 
 }
 
@@ -162,6 +163,18 @@ overflow-x: hidden;
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
+
+.character-table{
+  background: rgba(255, 252, 241, 0.795);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+      padding: 4px;
+      width: 00px;
+      margin-right: 50px;
+      width: 100%;
+      height: 100%;
+      
+}
 
   </style>
 </head>
@@ -242,8 +255,8 @@ overflow-x: hidden;
         
         <div class="spells-container">
           <h4></h4>
-          <div class="table-responsive">
-            <table class="table table-hover table-borderless">
+          
+            <table class="table table-hover table-borderless character-table" >
               <thead>
                 <tr>
                   <th>Spells</th>
@@ -252,7 +265,7 @@ overflow-x: hidden;
               <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
               <tbody id="spellsTableBody"></tbody>
             </table>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -311,8 +324,8 @@ overflow-x: hidden;
         <div class="col-md-6">
           <div class="items-container">
             <h4></h4>
-            <div class="table-responsive ">
-              <table class="table table-hover table-borderless">
+            
+              <table class="table table-hover table-borderless character-table">
                 <thead>
                   <tr>
                     <th>Items <button id="editSpells" class="btn">
@@ -323,7 +336,8 @@ overflow-x: hidden;
                 <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
                 <tbody id="itemsTableBody"></tbody>
               </table>
-            </div>
+            
+              
           </div>
         </div>
         <div class="col-md-6">
