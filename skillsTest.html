@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>D&D Skills</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Skill</th>
+                    <th>Score</th>
+                    <th>Modifier</th>
+                </tr>
+            </thead>
+            <tbody id="skillsTable">
+                <!-- Skills will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const skills = ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion', 'Sleight of Hand', 'Stealth', 'Survival'];
+        const table = document.getElementById('skillsTable');
+
+        skills.forEach(skill => {
+            const row = document.createElement('tr');
+            const skillCell = document.createElement('td');
+            skillCell.textContent = skill;
+            const scoreCell = document.createElement('td');
+            const scoreInput = document.createElement('input');
+            scoreInput.type = 'number';
+            scoreInput.min = '1';
+            scoreInput.max = '20';
+            scoreInput.value = '10';
+            scoreInput.addEventListener('input', updateModifier);
+            scoreCell.appendChild(scoreInput);
+            const modifierCell = document.createElement('td');
+            modifierCell.textContent = '0';
+            row.appendChild(skillCell);
+            row.appendChild(scoreCell);
+            row.appendChild(modifierCell);
+            table.appendChild(row);
+        });
+
+        function updateModifier(event) {
+            const score = event.target.value;
+            const modifier = Math.floor((score - 10) / 2);
+            event.target.parentNode.nextSibling.textContent = modifier;
+        }
+    </script>
+</body>
+</html>

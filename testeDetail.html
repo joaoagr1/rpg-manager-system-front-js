@@ -143,6 +143,26 @@ label{
   
 }
 
+.attributeMod{
+  margin-top: 7px;
+  width: 100px  ;
+}
+
+#div-tabela{
+  max-height: 300px;
+overflow: scroll;
+border-radius: 10px;
+overflow-x: hidden;
+
+
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
   </style>
 </head>
 
@@ -192,31 +212,34 @@ label{
           <label for="charisma">Level:</label>
           <span>14</span>
         </div>
+
+        
         
 
       </div>
 
+
     </div>
     <div class="row">
       <div class="col-md-6">
-        <div class="items-container">
-          <h4></h4>
-          <div class="table-responsive ">
-            <table class="table table-hover table-borderless">
+        
+          <div class="attributeMod">
+            <table class="table table-borderless">
               <thead>
-                <tr>
-                  <th>Items <button id="editSpells" class="btn">
-                    <i class="fa fa-cog"></i>
-                  </button></th>
-                </tr>
+                  <tr>
+                      <th>Attribute</th>
+                      <th>Score</th>
+                      <th>Mod</th>
+                  </tr>
               </thead>
-              <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
-              <tbody id="itemsTableBody"></tbody>
-            </table>
-          </div>
-        </div>
+              <tbody id="attributesTable">
+                  <!-- Attributes will be inserted here -->
+              </tbody>
+          </table>        </div>
+        
       </div>
       <div class="col-md-6">
+        
         <div class="spells-container">
           <h4></h4>
           <div class="table-responsive">
@@ -235,42 +258,35 @@ label{
     </div>
     <div  class="row">
       <div  class="col-md-4">
-        <div  class="items-container wd-1">
-          <!-- aqui vem os atributos -->
-          <div id="atributosInfo" class="character-sheet">
-            <h2 class="text-center"></h2>
-      
-            <div class="attribute">
-              <label for="strength">Strength:</label>
-              <span>16</span>
-            </div>
-      
-            <div class="attribute">
-              <label for="dexterity">Dexterity:</label>
-              <span>14</span>
-            </div>
-      
-            <div class="attribute">
-              <label for="constitution">Constitution:</label>
-              <span>12</span>
-            </div>
-      
-            <div class="attribute">
-              <label for="intelligence">Intelligence:</label>
-              <span>10</span>
-            </div>
-      
-            <div class="attribute">
-              <label for="wisdom">Wisdom:</label>
-              <span>8</span>
-            </div>
-      
-            <div class="attribute">
-              <label for="charisma">Charisma:</label>
-              <span>14</span>
-            </div>
-      
-          </div>
+        <div id="div-tabela"  class="items-container wd-1">
+          <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th>Skill</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Acrobatics</td><td>10</td></tr>
+                <tr><td>Animal Handling</td><td>10</td></tr>
+                <tr><td>Arcana</td><td>10</td></tr>
+                <tr><td>Athletics</td><td>10</td></tr>
+                <tr><td>Deception</td><td>10</td></tr>
+                <tr><td>History</td><td>10</td></tr>
+                <tr><td>Insight</td><td>10</td></tr>
+                <tr><td>Intimidation</td><td>10</td></tr>
+                <tr><td>Investigation</td><td>10</td></tr>
+                <tr><td>Medicine</td><td>10</td></tr>
+                <tr><td>Nature</td><td>10</td></tr>
+                <tr><td>Perception</td><td>10</td></tr>
+                <tr><td>Performance</td><td>10</td></tr>
+                <tr><td>Persuasion</td><td>10</td></tr>
+                <tr><td>Religion</td><td>10</td></tr>
+                <tr><td>Sleight of Hand</td><td>10</td></tr>
+                <tr><td>Stealth</td><td>10</td></tr>
+                <tr><td>Survival</td><td>10</td></tr>
+            </tbody>
+        </table>
 
         </div>
       </div>
@@ -289,61 +305,46 @@ label{
           </div>
           </div>
         </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="items-container">
+            <h4></h4>
+            <div class="table-responsive ">
+              <table class="table table-hover table-borderless">
+                <thead>
+                  <tr>
+                    <th>Items <button id="editSpells" class="btn">
+                      <i class="fa fa-cog"></i>
+                    </button></th>
+                  </tr>
+                </thead>
+                <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
+                <tbody id="itemsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="spells-container">
+            <h4></h4>
+            <div class="table-responsive">
+              <table class="table table-hover table-borderless">
+                <thead>
+                  <tr>
+                    <th>Spells</th>
+                  </tr>
+                </thead>
+                <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
+                <tbody id="spellsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     </div>
-
-
-    
-
-
-
-
-    <!-- <div class="character-sheet">
-      <h2 class="text-center"></h2>
-
-      <div class="attribute">
-        <label for="strength">Strength:</label>
-        <span>16</span>
-      </div>
-
-      <div class="attribute">
-        <label for="dexterity">Dexterity:</label>
-        <span>14</span>
-      </div>
-
-      <div class="attribute">
-        <label for="constitution">Constitution:</label>
-        <span>12</span>
-      </div>
-
-      <div class="attribute">
-        <label for="intelligence">Intelligence:</label>
-        <span>10</span>
-      </div>
-
-      <div class="attribute">
-        <label for="wisdom">Wisdom:</label>
-        <span>8</span>
-      </div>
-
-      <div class="attribute">
-        <label for="charisma">Charisma:</label>
-        <span>14</span>
-      </div>
-
-    </div> -->
-
-
-    <!-- <div class="form-group">
-      <label for="journal">Journal do Personagem</label>
-      <textarea class="form-control" id="journal" rows="4" readonly>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
-      </textarea>
-       Botão para abrir o modal de edição do Journal 
-      <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Editar Journal</button>
-  </div> -->
-
 
 
 
@@ -356,6 +357,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit 
   <footer>
     <p>Made with ♥ by João Rollo</p>
 </footer>
+
+
+
+
 
 
 
@@ -482,8 +487,40 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit 
       const modal = $(this);
       modal.find('.modal-body #descriptionContent').text(description);
     });
+
+
+    const attributes = {
+            'Strength': 10,
+            'Dexterity': 14,
+            'Constitution': 12,
+            'Intelligence': 10,
+            'Wisdom': 8,
+            'Charisma': 14
+        };
+        const table = document.getElementById('attributesTable');
+
+        for (const attribute in attributes) {
+            const row = document.createElement('tr');
+            const attributeCell = document.createElement('td');
+            attributeCell.textContent = attribute;
+            const scoreCell = document.createElement('td');
+            scoreCell.textContent = attributes[attribute];
+            const modifierCell = document.createElement('td');
+            modifierCell.textContent = Math.floor((attributes[attribute] - 10) / 2);
+            row.appendChild(attributeCell);
+            row.appendChild(scoreCell);
+            row.appendChild(modifierCell);
+            table.appendChild(row);
+        }
+
+
+        
+
   </script>
 
 </body>
 
 </html>
+
+
+
