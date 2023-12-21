@@ -1,54 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>D&D Skills</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #myProgress {
+            width: 100%;
+            background-color: #ddd;
+            max-width: 260px;
+
+        }
+
+        #myBar {
+            width: 100%;
+            height: 30px;
+            background-color: #4CAF50;
+            max-width: 260px;
+        }
+    </style>
+    <title>Barra de Vida</title>
 </head>
 <body>
-    <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Skill</th>
-                    <th>Score</th>
-                    <th>Modifier</th>
-                </tr>
-            </thead>
-            <tbody id="skillsTable">
-                <!-- Skills will be inserted here -->
-            </tbody>
-        </table>
-    </div>
 
-    <script>
-        const skills = ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion', 'Sleight of Hand', 'Stealth', 'Survival'];
-        const table = document.getElementById('skillsTable');
+<h1>Barra de Vida</h1>
 
-        skills.forEach(skill => {
-            const row = document.createElement('tr');
-            const skillCell = document.createElement('td');
-            skillCell.textContent = skill;
-            const scoreCell = document.createElement('td');
-            const scoreInput = document.createElement('input');
-            scoreInput.type = 'number';
-            scoreInput.min = '1';
-            scoreInput.max = '20';
-            scoreInput.value = '10';
-            scoreInput.addEventListener('input', updateModifier);
-            scoreCell.appendChild(scoreInput);
-            const modifierCell = document.createElement('td');
-            modifierCell.textContent = '0';
-            row.appendChild(skillCell);
-            row.appendChild(scoreCell);
-            row.appendChild(modifierCell);
-            table.appendChild(row);
-        });
+<div id="myProgress">
+  <div id="myBar"></div>
+</div>
 
-        function updateModifier(event) {
-            const score = event.target.value;
-            const modifier = Math.floor((score - 10) / 2);
-            event.target.parentNode.nextSibling.textContent = modifier;
+<br>
+<button id="reduceLifeButton">Clique aqui para reduzir a vida</button> 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var vidaMaxima = 100;
+    var vidaAtual = 100;
+
+    var reduceLifeButton = document.getElementById("reduceLifeButton");
+    reduceLifeButton.addEventListener("click", function() {
+        reduceLife();
+    });
+
+    function reduceLife() {
+        var elem = document.getElementById("myBar");   
+        var width = (vidaAtual / vidaMaxima) * 100;
+        
+        if (width > 0) {
+            width--; 
+            vidaAtual--;
+            elem.style.width = width + '%'; 
         }
-    </script>
+    }
+});
+</script>
+
 </body>
 </html>

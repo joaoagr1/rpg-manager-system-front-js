@@ -71,9 +71,11 @@
     }
 
     #informations {
-      width: 250px;
-      padding-left: 28px;
-
+      width: 192px;
+      padding-left: 28px; 
+      height: 339px;
+      margin-top: 1px;
+      max-height: none;
     }
 
     #imageCharacter {
@@ -112,7 +114,7 @@
 
       }
 #journalInfo{
-  width: 437px;
+  width: 490px;
   margin: 0;
   padding: 10px;
   min-height: 280px;
@@ -201,7 +203,28 @@ padding-top: -100;
 #featuresInfo{
   margin-top: 8px;
   margin-left: 0px;
+  border-radius: 10px;
+
 }
+
+#myProgress {
+            width: 100%;
+            background-color: #ddd;
+            max-width: 390px;
+            border-radius: 10px;
+
+
+        }
+
+        #myBar {
+            width: 100%;
+            height: 30px;
+            background-color: #4CAF50;
+            max-width: 390px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
 
   </style>
 </head>
@@ -219,38 +242,42 @@ padding-top: -100;
         <!-- INSERIR IMAGEM -->
         <img src="https://i.pinimg.com/564x/65/60/00/6560002a473d882344e979bff9285e05.jpg" alt="Imagem Exemplo">
 
+        <div id="myProgress">
+          <div id="myBar"></div>
+        </div>
       </div>
-      <div id="informations" class="character-sheet">
+      
+      <div id="informations" class="character-sheet div-tabela">
         <h2 class="text-center"></h2>
         <p></p>
         <div class="attribute">
-          <label for="strength">Character Name</label>
-          <span>Johny Rolo</span>
+          <label for="strength">Name</label>
+          <P id="characterNameProfile">Johny Rolo</p>
         </div>
 
         <div class="attribute">
           <label for="dexterity">Alignment:</label>
-          <span>14</span>
+          <p id="alignmentProfile">14</p>
         </div>
 
         <div class="attribute">
           <label for="constitution">Race:</label>
-          <span>Elf</span>
+          <p id="raceProfile">Elf</p>
         </div>
 
         <div class="attribute">
           <label for="intelligence">Class:</label>
-          <span>Warrior</span>
+          <p id="classProfile">Warrior</p>
         </div>
 
         <div class="attribute">
           <label for="wisdom">background:</label>
-          <span>Outlander</span>
+          <p id="backgroundProfile">Outlander</p>
         </div>
 
         <div class="attribute">
-          <label for="charisma">Level:</label>
-          <span>14</span>
+          <label  for="charisma">Level:</label>
+          <p id="levelProfile">14</p>
         </div>
 
         
@@ -453,6 +480,17 @@ padding-top: -100;
         .then(response => response.json())
         .then(data => {
           // Seus detalhes de personagem aqui
+          console.log(data);
+          document.querySelector("#characterNameProfile").innerHTML = data.characterName;
+          document.querySelector("#alignmentProfile").innerHTML = data.alignment;
+          document.querySelector("#raceProfile").innerHTML = data.race;
+          document.querySelector("#classProfile").innerHTML = data.class_;
+          document.querySelector("#backgroundProfile").innerHTML = data.background;
+          document.querySelector("#levelProfile").innerHTML = data.level;
+
+
+
+
         })
         .catch(error => console.error('Erro ao obter dados do perfil:', error));
     }
@@ -554,7 +592,52 @@ padding-top: -100;
         }
 
 
+        document.addEventListener('DOMContentLoaded', function() {
+    var vidaMaxima = 100;
+    var vidaAtual = 100;
+
+  
+
+    function reduceLife() {
+        var elem = document.getElementById("myBar");   
+        var width = (vidaAtual / vidaMaxima) * 100;
         
+        if (width > 0) {
+            width--; 
+            vidaAtual--;
+            elem.style.width = width + '%'; 
+        }
+    }
+});
+
+
+
+function fetchAttributesData() {
+      // Substitua a URL abaixo pela sua URL de API
+      idCharacter = localStorage.getItem('idCharacter');
+      const apiUrl = `http://localhost:8080/characters/${idCharacter}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // Seus detalhes de personagem aqui
+          console.log(data);
+          document.querySelector("#characterNameProfile").innerHTML = data.characterName;
+          document.querySelector("#alignmentProfile").innerHTML = data.alignment;
+          document.querySelector("#raceProfile").innerHTML = data.race;
+          document.querySelector("#classProfile").innerHTML = data.class_;
+          document.querySelector("#backgroundProfile").innerHTML = data.background;
+          document.querySelector("#levelProfile").innerHTML = data.level;
+
+
+
+
+        })
+        .catch(error => console.error('Erro ao obter dados do perfil:', error));
+    }
+
+
+
 
   </script>
 
