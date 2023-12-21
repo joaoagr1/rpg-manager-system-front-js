@@ -243,6 +243,14 @@ padding-top: -100;
           
         }
 
+        #vida-maxima{          font-weight: bold;
+}
+        #vida-atual{
+          font-weight: bold;
+         
+        }
+
+
   </style>
 </head>
 
@@ -257,10 +265,10 @@ padding-top: -100;
     <div class="row">
       <div id="imageCharacter" class="character-sheet img-container">
         <!-- INSERIR IMAGEM -->
-        <img src="https://i.pinimg.com/564x/65/60/00/6560002a473d882344e979bff9285e05.jpg" alt="Imagem Exemplo">
+        <img src="https://images.nightcafe.studio/jobs/ajCgkL2iKASgwCVlLgNA/ajCgkL2iKASgwCVlLgNA--1--ca6wb.jpg?tr=w-1600,c-at_max" alt="Imagem Exemplo">
 
         <div id="myProgress">
-          <div id="myBar"></div>
+          <div id="myBar"><center><scan id="vida-atual">80</scan><strong>/</strong><scan id="vida-maxima">80</scan></center></div>
         </div>
       </div>
       
@@ -268,7 +276,7 @@ padding-top: -100;
         <h2 class="text-center"></h2>
         <p></p>
         <div class="attribute">
-          <label for="strength">Name</label>
+          <label for="strength">Name:</label>
           <P id="characterNameProfile">Johny Rolo</p>
         </div>
 
@@ -354,10 +362,10 @@ padding-top: -100;
             </thead>
             <tbody>
                 <tr><td>Acrobatics</td><td>10</td></tr>
-                <tr><td>Animal Handling</td><td>10</td></tr>
+                <tr><td>Animal Handling ⭐</td><td>10</td></tr>
                 <tr><td>Arcana</td><td>10</td></tr>
                 <tr><td>Athletics</td><td>10</td></tr>
-                <tr><td>Deception</td><td>10</td></tr>
+                <tr><td>Deception ⭐</td><td>10</td></tr>
                 <tr><td>History</td><td>10</td></tr>
                 <tr><td>Insight</td><td>10</td></tr>
                 <tr><td>Intimidation</td><td>10</td></tr>
@@ -465,7 +473,9 @@ padding-top: -100;
           <p id="descriptionContent"></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" onclick="deleteSpell()" data-dismiss="modal">Delete</button>
+
         </div>
 
       </div>
@@ -549,6 +559,8 @@ padding-top: -100;
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
+          console.log("speel id: "+data.spell_id)
+
           const spellsTableBody = document.getElementById('spellsTableBody');
 
           // Limpe a tabela antes de adicionar novos itens
@@ -558,7 +570,7 @@ padding-top: -100;
           data.forEach(spell => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                            <td class="spell-name" data-toggle="modal" data-target="#descriptionModal" data-description="${spell.description}">${spell.name}</td>
+                            <td class="spell-name" data-toggle="modal" data-target="#descriptionModal" data-description="${spell.description}" data-spell_id="${spell.spell_id}">${spell.name}</td>
                         `;
             spellsTableBody.appendChild(row);
           });
@@ -587,6 +599,9 @@ padding-top: -100;
       const description = button.data('description');
       const modal = $(this);
       modal.find('.modal-body #descriptionContent').text(description);
+      spell_id = button.data('spell_id');
+      //console.log(spell_id)
+      localStorage.setItem('spell_id', spell_id);
     });
 
 
@@ -623,7 +638,7 @@ function fetchAttributesData() {
             'Dex 🗡️': data[0].dexterity,
             'Const 💚': data[0].constitution,
             'Int 📘' : data[0].intelligence,
-            'Wis': data[0].wisdom,
+            'Wis ⌛': data[0].wisdom,
             'Cha 🎭': data[0].charisma
         };
         const table = document.getElementById('attributesTable');
@@ -652,6 +667,37 @@ function fetchAttributesData() {
 
 
 
+    function deleteSpell() {
+    // Pegar o spell_id do localStorage
+    var spell_id = localStorage.getItem('spell_id');
+
+    // Definir a URL da API
+    var apiUrl = `http://localhost:8080/spells/${spell_id}`;
+
+    // Fazer a requisição DELETE
+    fetch(apiUrl, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            window.location.reload()
+
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Spell deletado com sucesso:', data);
+        window.location.reload()
+    })
+    .catch(error => {
+        console.error('Erro ao deletar o Spell:', error);
+        window.location.reload()
+
+    });
+}
+
+
 
   </script>
 
@@ -664,4 +710,5 @@ function fetchAttributesData() {
 <!-- CA
 PERCEPÇÃO PASSIVA
 DINHEIRO
-PROFICIENCIAS -->
+PROFICIENCIAS
+SALVA GUARDA -->
