@@ -114,11 +114,13 @@
 
       }
 #journalInfo{
-  width: 490px;
+  width: 372px;
   margin: 0;
-  padding: 10px;
+  padding: 8px;
   min-height: 280px;
   max-height: 2800px;
+  padding-top: 1px;
+  margin-top: 9px;
 }
 
 #journal{
@@ -204,6 +206,7 @@ padding-top: -100;
   margin-top: 8px;
   margin-left: 0px;
   border-radius: 10px;
+  width: 255px;
 
 }
 
@@ -225,6 +228,20 @@ padding-top: -100;
             border-radius: 10px;
         }
 
+        #tableAttributes{
+          width: 190x;
+        }
+
+        .class-attributes{
+          font-weight: bolder;
+          text-align:left;
+        }
+
+        .class-score{
+          text-align:start;
+          text-decoration:un;
+          margin-bottom: 2px;
+        }
 
   </style>
 </head>
@@ -291,12 +308,12 @@ padding-top: -100;
       <div id="attributeTable" class="col-md-6">
         
           <div  class="attributeMod">
-            <table class="table table-borderless character-sheet">
+            <table id="tableAttributes" class="table table-borderless character-sheet">
               <thead>
                   <tr>
-                      <th>Attribute</th>
-                      <th>Score</th>
-                      <th>Mod</th>
+                      <th>{Attribute}</th>
+                      <th class="class-score">{Score}</th>
+                      <th>{Mod}</th>
                   </tr>
               </thead>
               <tbody id="attributesTable">
@@ -313,7 +330,9 @@ padding-top: -100;
             <table class="table table-hover table-borderless character-table div-tabela" >
               <thead>
                 <tr>
-                  <th>Items</th>
+                  <th>{Items ⚔️} <button id="editSpells" class="btn">
+                    <i class="fa fa-cog"></i>
+                  </button></th>
                 </tr>
               </thead>
               <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
@@ -363,7 +382,7 @@ padding-top: -100;
           <div id="journalInfo" class="character-sheet">
             <div class="form-group">
               <p></p>
-              <center><label for="journal">Character Journal </label></center>
+              <center><label for="journal">{Character Journal 📜} </label></center>
               <textarea class="form-control" id="journal" rows="4" readonly>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
               </textarea>
@@ -383,7 +402,7 @@ padding-top: -100;
               <table class="table table-hover table-borderless character-table">
                 <thead>
                   <tr>
-                    <th>Spells <button id="editSpells" class="btn">
+                    <th>{Spells 🧙‍♂️} <button id="editSpells" class="btn">
                       <i class="fa fa-cog"></i>
                     </button></th>
                   </tr>
@@ -399,8 +418,8 @@ padding-top: -100;
           <div id="featuresInfo" class="character-sheet">
             <div class="form-group">
               <p></p>
-              <center><label for="journal">Features </label></center>
-              <textarea class="form-control" id="journal" rows="4" readonly>
+              <center><label>Features </label></center>
+              <textarea  class="form-control" id="features" rows="4" readonly>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
               </textarea>
                <!-- Botão para abrir o modal de edição do Journal  -->
@@ -468,7 +487,8 @@ padding-top: -100;
       fetchProfileData();
       fetchItems();
       fetchSpells();
-
+      fetchAttributesData();
+      fetchJournal();
     };
 
     function fetchProfileData() {
@@ -487,6 +507,7 @@ padding-top: -100;
           document.querySelector("#classProfile").innerHTML = data.class_;
           document.querySelector("#backgroundProfile").innerHTML = data.background;
           document.querySelector("#levelProfile").innerHTML = data.level;
+          document.getElementById('features').textContent = data.features;
 
 
 
@@ -546,17 +567,19 @@ padding-top: -100;
     }
 
     function fetchJournal() {
-      // Substitua a URL abaixo pela sua URL de API
-      idCharacter = localStorage.getItem('idCharacter');
-      const apiUrl = `http://localhost:8080/journal/${idCharacter}`;
+    // Substitua a URL abaixo pela sua URL de API
+    idCharacter = localStorage.getItem('idCharacter');
+    const apiUrl = `http://localhost:8080/journal/${idCharacter}`;
 
-      fetch(apiUrl)
-        .then(response => response.text())
+    fetch(apiUrl)
+        .then(response => response.json()) // Altere para response.json()
         .then(data => {
-          document.getElementById('journal').textContent = data;
+            document.getElementById('journal').textContent = data[0].journal;
+            console.log("journal: "+ data[0].journal) // Altere para data.journal
         })
         .catch(error => console.error('Erro ao obter dados do Journal:', error));
-    }
+}
+
 
     // Exibir a descrição no modal ao clicar no nome do item ou spell
     $('#descriptionModal').on('show.bs.modal', function (event) {
@@ -567,29 +590,9 @@ padding-top: -100;
     });
 
 
-    const attributes = {
-            'Strength': 10,
-            'Dexterity': 14,
-            'Constitution': 12,
-            'Intelligence': 10,
-            'Wisdom': 8,
-            'Charisma': 14
-        };
-        const table = document.getElementById('attributesTable');
 
-        for (const attribute in attributes) {
-            const row = document.createElement('tr');
-            const attributeCell = document.createElement('td');
-            attributeCell.textContent = attribute;
-            const scoreCell = document.createElement('td');
-            scoreCell.textContent = attributes[attribute];
-            const modifierCell = document.createElement('td');
-            modifierCell.textContent = Math.floor((attributes[attribute] - 10) / 2);
-            row.appendChild(attributeCell);
-            row.appendChild(scoreCell);
-            row.appendChild(modifierCell);
-            table.appendChild(row);
-        }
+
+    
 
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -598,16 +601,7 @@ padding-top: -100;
 
   
 
-    function reduceLife() {
-        var elem = document.getElementById("myBar");   
-        var width = (vidaAtual / vidaMaxima) * 100;
-        
-        if (width > 0) {
-            width--; 
-            vidaAtual--;
-            elem.style.width = width + '%'; 
-        }
-    }
+    
 });
 
 
@@ -615,20 +609,40 @@ padding-top: -100;
 function fetchAttributesData() {
       // Substitua a URL abaixo pela sua URL de API
       idCharacter = localStorage.getItem('idCharacter');
-      const apiUrl = `http://localhost:8080/characters/${idCharacter}`;
+      const apiUrl = `http://localhost:8080/atributepoints/${idCharacter}`;
 
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
           // Seus detalhes de personagem aqui
-          console.log(data);
-          document.querySelector("#characterNameProfile").innerHTML = data.characterName;
-          document.querySelector("#alignmentProfile").innerHTML = data.alignment;
-          document.querySelector("#raceProfile").innerHTML = data.race;
-          document.querySelector("#classProfile").innerHTML = data.class_;
-          document.querySelector("#backgroundProfile").innerHTML = data.background;
-          document.querySelector("#levelProfile").innerHTML = data.level;
+          console.log(data[0].strength);
+          
 
+          const attributes = {
+            'Str 💪': data[0].strength,
+            'Dex 🗡️': data[0].dexterity,
+            'Const 💚': data[0].constitution,
+            'Int 📘' : data[0].intelligence,
+            'Wis': data[0].wisdom,
+            'Cha 🎭': data[0].charisma
+        };
+        const table = document.getElementById('attributesTable');
+
+        for (const attribute in attributes) {
+            const row = document.createElement('tr');
+            const attributeCell = document.createElement('td');
+            attributeCell.classList.add('class-attributes')
+            attributeCell.textContent = attribute;
+            const scoreCell = document.createElement('td');
+            scoreCell.classList.add('class-score')
+            scoreCell.textContent = attributes[attribute];
+            const modifierCell = document.createElement('td');
+            modifierCell.textContent = Math.floor((attributes[attribute] - 10) / 2);
+            row.appendChild(attributeCell);
+            row.appendChild(scoreCell);
+            row.appendChild(modifierCell);
+            table.appendChild(row);
+        }
 
 
 
