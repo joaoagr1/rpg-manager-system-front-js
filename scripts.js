@@ -112,27 +112,6 @@ document.getElementById('createUserForm').addEventListener('submit', async funct
 
 
 
-// Adicione ao seu arquivo JavaScript (characterList.js)
-
-document.addEventListener('DOMContentLoaded', function () {
-    // ... (seu código existente)
-
-    // Adiciona a classe 'table-hover' à tabela para permitir o efeito hover
-    document.querySelector('#table').classList.add('table-hover');
-
-    // Adiciona ou remove a classe 'table-hover' das linhas da tabela ao passar o mouse
-    document.querySelectorAll('.table-hover tbody tr').forEach(row => {
-        row.addEventListener('mouseover', function () {
-            this.classList.add('table-hover');
-        });
-
-        row.addEventListener('mouseout', function () {
-            this.classList.remove('table-hover');
-        });
-    });
-});
-
-
 document.addEventListener('DOMContentLoaded',function() {
     var mensagemErro = localStorage.getItem('mensagemErro');
 
