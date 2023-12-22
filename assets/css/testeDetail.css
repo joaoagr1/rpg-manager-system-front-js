@@ -1,0 +1,242 @@
+
+body {
+    background: url('../images/testetesteteste.jpg');
+    background-size: cover;
+    height: 100vh;
+  }
+
+  .container {
+    max-width: 700px;
+    margin-top: 30px;
+  }
+
+
+
+
+  .character-sheet {
+    background: rgba(255, 252, 241, 0.795);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    padding: 4px;
+    width: 00px;
+    margin-left: 15px;
+    min-height: 240px;
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+  .character-sheet img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 293px;
+    padding: 100;
+    border-radius: 10px;
+
+
+
+  }
+
+
+
+  .attribute {
+    margin-bottom: 10px;
+  }
+
+  .attribute label {
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+  }
+
+  .attribute span {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+  }
+
+  .container {
+    min-height: 200px;
+  }
+
+  #informations {
+    width: 192px;
+    padding-left: 28px; 
+    height: 339px;
+    margin-top: 1px;
+    max-height: none;
+  }
+
+  #imageCharacter {
+    width: 400px;
+    
+  }
+
+  table{
+    background: rgba(255, 252, 241, 0.795);
+    border-radius: 10px;
+    
+    
+ }
+
+ td{
+  cursor: pointer;
+
+ }
+
+    footer {
+          background-color: rgba(255, 255, 255,0);
+          padding: 10px;
+          margin-top: 40px;
+          text-align: center;
+          color: white;
+          font-weight: bolder;
+          text-shadow: 2px 2px 4px rgb(0, 0, 0);
+      }
+
+    #atributosInfo{
+      width: 200px;
+      padding: 6px;
+      padding-left: 20px;
+      padding-top: 15px;
+      margin-left: 0px;
+
+    }
+#journalInfo{
+width: 372px;
+margin: 0;
+padding: 8px;
+min-height: 280px;
+max-height: 2800px;
+padding-top: 1px;
+margin-top: 9px;
+}
+
+#journal{
+height: 160px;
+max-height: 160px;
+min-height: 100px;
+}
+label{
+font-weight: bold;
+}
+
+.form-control{
+border-radius: 10px;
+margin-top: 10px;
+}
+
+.fa{
+margin-bottom: 8px;
+margin-right: 10px;
+padding: 0px;
+}
+
+#editSpells:focus {
+box-shadow: none;
+
+}
+
+.attributeMod{
+margin-top: 7px;
+width: 100px  ;
+}
+
+.div-tabela{
+padding: 3px;
+margin-top: -6px;
+max-height: 300px;
+overflow: scroll;
+border-radius: 10px;
+overflow-x: hidden;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+#div-tabela{
+padding: 3px;
+
+max-height: 300px;
+overflow: scroll;
+border-radius: 10px;
+overflow-x: hidden;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+min-height: 332px;
+margin-top: 8px;
+padding-top: -100;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+.character-table{
+background: rgba(255, 252, 241, 0.795);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    padding: 4px;
+    width: 00px;
+    margin-right: 50px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+#attributeTable{
+/* background-color: black; */
+margin-right: -50px;
+margin-left: -13px;
+}
+
+#featuresInfo{
+margin-top: 8px;
+margin-left: 0px;
+border-radius: 10px;
+width: 255px;
+
+}
+
+#myProgress {
+          width: 100%;
+          background-color: #ddd;
+          max-width: 390px;
+          border-radius: 10px;
+
+
+      }
+
+      #myBar {
+          width: 100%;
+          height: 30px;
+          background-color: #4CAF50;
+          max-width: 390px;
+          margin-top: 10px;
+          border-radius: 10px;
+      }
+
+      #tableAttributes{
+        width: 190x;
+      }
+
+      .class-attributes{
+        font-weight: bolder;
+        text-align:left;
+      }
+
+      .class-score{
+        text-align:start;
+        margin-bottom: 2px;
+        
+      }
+
+      #vida-maxima{          font-weight: bold;
+}
+      #vida-atual{
+        font-weight: bold;
+       
+      }

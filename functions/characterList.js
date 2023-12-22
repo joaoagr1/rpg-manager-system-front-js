@@ -14,11 +14,11 @@ function fetchCharacters() {
             characterTableBody.innerHTML = '';
             data.forEach(character => {
                 const idCharacter = character.character_id;
-                localStorage.setItem('idCharacter', idCharacter);
                 console.log(idCharacter)
                 const row = document.createElement('tr');
                 row.addEventListener('click', function () {
                     console.log(idCharacter);
+                    localStorage.setItem('idCharacter', idCharacter);
                 });
                 row.innerHTML = `
                     <td>${character.characterName}</td>
@@ -71,6 +71,7 @@ function confirmarExclusao() {
     if (confirmacao) {
         // Coloque aqui o código para excluir o item
         idCharacter = localStorage.getItem('idCharacter');
+        console.log(idCharacter)
         const apiUrl = `http://localhost:8080/characters/${idCharacter}`;
 
         fetch(apiUrl, {
@@ -101,7 +102,7 @@ function confirmarExclusao() {
 
 
 document.getElementById('infoCharacter').addEventListener('click', function () {
-    window.location.href = 'characterDetail.html';
+    window.location.href = '../pages/detail.html';
 });
 
 

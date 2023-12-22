@@ -42,7 +42,7 @@ document.getElementById('authenticationForm').addEventListener('submit', async f
         window.location.reload();
 
     } else {
-        window.location.href = 'characterList.html';
+        window.location.href = 'pages/characterList.html';
     }
 
 });
