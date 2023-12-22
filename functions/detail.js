@@ -24,6 +24,9 @@
         document.querySelector("#backgroundProfile").innerHTML = data.background;
         document.querySelector("#levelProfile").innerHTML = data.level;
         document.getElementById('features').textContent = data.features;
+        document.getElementById('gp').textContent = data.gp;
+        document.getElementById('ac').textContent = data.ac;
+
 
 
       })
@@ -134,7 +137,7 @@ function fetchAttributesData() {
       .then(response => response.json())
       .then(data => {
         // Seus detalhes de personagem aqui
-        console.log(data[0].strength);
+        console.log("força: "+data[0].passive_perception);
         
 
         const attributes = {
@@ -143,7 +146,10 @@ function fetchAttributesData() {
           'Const 💚': data[0].constitution,
           'Int 📘' : data[0].intelligence,
           'Wis ⌛': data[0].wisdom,
-          'Cha 🎭': data[0].charisma
+          'Cha 🎭': data[0].charisma,
+          'Per 🔎': data[0].passivePerception,
+
+          
       };
       const table = document.getElementById('attributesTable');
 
