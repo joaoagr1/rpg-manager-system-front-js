@@ -1,8 +1,10 @@
 
 body {
-    background: url('../images/testetesteteste.jpg');
+    /* background: url('../images/testetesteteste.jpg'); */
     background-size: cover;
     height: 100vh;
+     background-color: aliceblue; 
+    /* background-color:rgb(51, 57, 63) */
   }
 
   .container {
@@ -248,4 +250,9 @@ width: 255px;
       #vida-atual{
         font-weight: bold;
        
+      }
+
+      .modal-content{
+        border-radius: 10px;
+        border: none;
       }

@@ -19,14 +19,30 @@
         console.log(data);
         document.querySelector("#characterNameProfile").innerHTML = data.characterName;
         localStorage.setItem('characterName',data.characterName);
+
         document.querySelector("#alignmentProfile").innerHTML = data.alignment;
+        localStorage.setItem('alignment',data.alignment);
+
         document.querySelector("#raceProfile").innerHTML = data.race;
+        localStorage.setItem('race',data.race);
+
         document.querySelector("#classProfile").innerHTML = data.class_;
+        localStorage.setItem('class_',data.class_);
+
         document.querySelector("#backgroundProfile").innerHTML = data.background;
+        localStorage.setItem('background',data.background);
+
         document.querySelector("#levelProfile").innerHTML = data.level;
+        localStorage.setItem('level',data.level);
+
         document.getElementById('features').textContent = data.features;
-        document.getElementById('gp').textContent = data.gp;
-        document.getElementById('ac').textContent = data.ac;
+        localStorage.setItem('features',data.features);
+
+        document.getElementById('gpProfile').textContent = data.gp;
+        localStorage.setItem('gp',data.gp);
+
+        document.getElementById('acProfile').textContent = data.ac;
+        localStorage.setItem('ac',data.ac);
 
 
 
@@ -210,4 +226,27 @@ function fetchAttributesData() {
   });
 }
 
+
+document.getElementById('informations').addEventListener('click', function() {
+  // Coloque o código que você deseja executar aqui
+  console.log('Você clicou no elemento com id "informations"');
+
+  //gets do storage e atribuições nos campos do edit do modal
+
+  document.getElementById('characterName').value = localStorage.getItem('characterName')
+  document.getElementById('alignment').value = localStorage.getItem('alignment')
+  document.getElementById('class').value = localStorage.getItem('class_')
+  document.getElementById('level').value = localStorage.getItem('level')
+  document.getElementById('ac').value = localStorage.getItem('ac')
+
+
+
+
+  
+  
+
+
+
+
+});
 
