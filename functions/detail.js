@@ -18,6 +18,7 @@
         // Seus detalhes de personagem aqui
         console.log(data);
         document.querySelector("#characterNameProfile").innerHTML = data.characterName;
+        localStorage.setItem('characterName',data.characterName);
         document.querySelector("#alignmentProfile").innerHTML = data.alignment;
         document.querySelector("#raceProfile").innerHTML = data.race;
         document.querySelector("#classProfile").innerHTML = data.class_;
@@ -109,6 +110,8 @@
     spell_id = button.data('spell_id');
     //console.log(spell_id)
     localStorage.setItem('spell_id', spell_id);
+    characterName = localStorage.getItem('characterName')
+    console.log(characterName)
   });
 
 

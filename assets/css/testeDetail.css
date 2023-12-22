@@ -67,7 +67,16 @@ body {
     height: 339px;
     margin-top: 1px;
     max-height: none;
+    cursor:pointer;
+
   }
+  #informations label{
+ 
+    cursor:pointer;
+
+  }
+
+  
 
   #imageCharacter {
     width: 400px;
