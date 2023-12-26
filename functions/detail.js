@@ -214,9 +214,9 @@ function deleteSpell() {
   var spell_id = localStorage.getItem('spell_id');
   var path = localStorage.getItem('path');
   var item_id = localStorage.getItem('item_id');
-
+  var deleted_id = localStorage.getItem('deleted_id')
   // Definir a URL da API
-  var apiUrl = `http://localhost:8080/${path}/${item_id}`;
+  var apiUrl = `http://localhost:8080/${path}/${deleted_id}`;
   console.log(path)
 
   // Fazer a requisição DELETE  
