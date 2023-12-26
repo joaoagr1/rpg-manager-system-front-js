@@ -37,8 +37,9 @@
           </div>
         </div>
       </div>
-      
-      <div id="informations" class="character-sheet div-tabela" data-toggle="modal" data-target="#editInformationsModal">
+
+      <div id="informations" class="character-sheet div-tabela" data-toggle="modal"
+        data-target="#editInformationsModal">
         <h2 class="text-center"></h2>
         <p></p>
         <div class="attribute">
@@ -81,7 +82,7 @@
           <p id="acProfile">14</p>
         </div>
 
-          
+
 
 
 
@@ -117,7 +118,8 @@
           <table class="table table-hover table-borderless character-table div-tabela">
             <thead>
               <tr>
-                <th>{Items ⚔️} <button id="editSpells" class="btn">
+                <th>{Items ⚔️} <button id="addItems" data-toggle="modal" data-target="#addItemModal"
+                    class="btn editButton">
                     <i class="fa fa-cog"></i>
                   </button></th>
               </tr>
@@ -243,7 +245,7 @@
           <table class="table table-hover table-borderless character-table">
             <thead>
               <tr>
-                <th>{Spells 🧙‍♂️} <button id="editSpells" class="btn">
+                <th>{Spells 🧙‍♂️} <button id="" class="btn editButton">
                     <i class="fa fa-cog"></i>
                   </button></th>
               </tr>
@@ -318,114 +320,152 @@
 
   </div>
 
-  <div class="modal fade" id="editInformationsModal" tabindex="-1" role="dialog" aria-labelledby="addCharacterModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="characterModalLabel">Edit</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="characterName">Character Name</label>
-                            <input type="text" class="form-control" id="characterName">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="alignment">Alignment</label>
-                            <select class="form-control" id="alignment">
-                                <option>Lawful Good</option>
-                                <option>Neutral Good</option>
-                                <option>Chaotic Good</option>
-                                <option>Lawful Neutral</option>
-                                <option>True Neutral</option>
-                                <option>Chaotic Neutral</option>
-                                <option>Lawful Evil</option>
-                                <option>Neutral Evil</option>
-                                <option>Chaotic Evil</option>
-
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="class">Class</label>
-                            <select class="form-control" id="class">
-                                <!-- Substitua com as opções de classe de D&D 5ª edição -->
-                                <option>Barbarian</option>
-                                <option>Bard</option>
-                                <option>Warlock</option>
-                                <option>Cleric</option>
-                                <option>Druid</option>
-                                <option>Sorcerer</option>
-                                <option>Fighter</option>
-                                <option>Rogue</option>
-                                <option>Wizard</option>
-                                <option>Monk</option>
-                                <option>Paladin</option>
-                                <option>Ranger</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="level">Level</label>
-                            <select class="form-control" id="level">
-                                <!-- Opções de 1 a 20 -->
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                                <option>15</option>
-                                <option>16</option>
-                                <option>17</option>
-                                <option>18</option>
-                                <option>19</option>
-                                <option>20</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                          <label>Armor Class</label>
-                          <input type="text" class="form-control" id="ac">
-                      </div>
-
-                      <div class="form-group">
-                        <label>GP</label>
-                        <input type="text" class="form-control" id="gp">
-                    </div>
-
-                        <p id="mensagemErro"></p>
-
-                       
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button id="editCharacterButton" type="button" class="btn btn-primary">Save</button>
-                </div>
-            </div>
+  <div class="modal fade" id="editInformationsModal" tabindex="-1" role="dialog"
+    aria-labelledby="addCharacterModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="characterModalLabel">Edit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="characterName">Character Name</label>
+              <input type="text" class="form-control" id="characterName">
+            </div>
+
+            <div class="form-group">
+              <label for="alignment">Alignment</label>
+              <select class="form-control" id="alignment">
+                <option>Lawful Good</option>
+                <option>Neutral Good</option>
+                <option>Chaotic Good</option>
+                <option>Lawful Neutral</option>
+                <option>True Neutral</option>
+                <option>Chaotic Neutral</option>
+                <option>Lawful Evil</option>
+                <option>Neutral Evil</option>
+                <option>Chaotic Evil</option>
+
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="class">Class</label>
+              <select class="form-control" id="class">
+                <!-- Substitua com as opções de classe de D&D 5ª edição -->
+                <option>Barbarian</option>
+                <option>Bard</option>
+                <option>Warlock</option>
+                <option>Cleric</option>
+                <option>Druid</option>
+                <option>Sorcerer</option>
+                <option>Fighter</option>
+                <option>Rogue</option>
+                <option>Wizard</option>
+                <option>Monk</option>
+                <option>Paladin</option>
+                <option>Ranger</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="level">Level</label>
+              <select class="form-control" id="level">
+                <!-- Opções de 1 a 20 -->
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Armor Class</label>
+              <input type="text" class="form-control" id="ac">
+            </div>
+
+            <div class="form-group">
+              <label>GP</label>
+              <input type="text" class="form-control" id="gp">
+            </div>
+
+            <p id="mensagemErro"></p>
+
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button id="editCharacterButton" type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
     </div>
+  </div>
+
+
+
+  <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="editItemModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="characterModalLabel">Add Item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="characterName">Name:</label>
+              <input type="text" class="form-control" id="itemNamePost">
+            </div>
+            <div class="mb-3">
+            <label for="message-text" class="col-form-label">Description:</label>
+            <textarea class="form-control" id="descriptionNamePost"></textarea>
+        </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button id="postItemButton" type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
 
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <script src="../functions/detail.js"></script>
+  <script src="../functions/detail-get.js"></script>
+  <script src="../functions/detail-delete.js"></script>
+  <script src="../functions/detail-put.js"></script>
+  <script src="../functions/detail-post.js"></script>
 
 </body>
 

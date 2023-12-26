@@ -145,9 +145,8 @@ margin-right: 10px;
 padding: 0px;
 }
 
-#editSpells:focus {
+.editButton:focus {
 box-shadow: none;
-
 }
 
 .attributeMod{
