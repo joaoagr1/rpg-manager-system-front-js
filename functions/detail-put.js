@@ -17,7 +17,7 @@ document.getElementById('informations').addEventListener('click', function () {
     var acEdicao = document.getElementById('ac').value;
     var gpEdicao = document.getElementById('gp').value;
 
-
+ 
     idCharacter = localStorage.getItem('idCharacter');
 
     // URL da API ou servidor para onde você está enviando a requisição
@@ -68,3 +68,91 @@ document.getElementById('informations').addEventListener('click', function () {
 
 
 
+document.getElementById('tableAttributes').addEventListener('click', function(){
+  idCharacter = localStorage.getItem('idCharacter');
+  const apiUrl = `http://localhost:8080/atributepoints/${idCharacter}`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+
+      document.getElementById('strEdit').value = data[0].strength;
+      document.getElementById('dexEdit').value = data[0].dexterity;
+      document.getElementById('constEdit').value = data[0].constitution;
+      document.getElementById('intEdit').value = data[0].intelligence;
+      document.getElementById('wisEdit').value = data[0].wisdom;
+      document.getElementById('chaEdit').value = data[0].charisma;
+      document.getElementById('perEdit').value = data[0].passivePerception;
+
+
+
+
+
+
+
+
+    })
+ })
+
+
+ document.getElementById('editAttributesButton').addEventListener('click', function(){
+  strRequest = document.getElementById('strEdit').value;
+  dexRequest = document.getElementById('dexEdit').value;
+  constRequest = document.getElementById('constEdit').value;
+  intRequest = document.getElementById('intEdit').value;
+  wisRequest = document.getElementById('wisEdit').value;
+  chaRequest = document.getElementById('chaEdit').value;
+  perRequest = document.getElementById('perEdit').value;
+
+
+
+// Defina o ID do personagem
+var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
+
+// URL da API
+const apiUrl = `http://localhost:8080/atributepoints/${characterId}`;
+
+// Corpo da requisição
+const requestBody = {
+  strength: strRequest,
+  passivePerception: perRequest,
+  dexterity: dexRequest,
+  constitution: constRequest,
+  intelligence: intRequest,
+  wisdom: wisRequest,
+  charisma: chaRequest
+};
+
+// Configurações da requisição
+const requestOptions = {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(requestBody)
+};
+
+// Realiza a requisição
+fetch(apiUrl, requestOptions)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Requisição bem-sucedida. Resposta:', data);
+    location.reload();
+  })
+  .catch(error => {
+    console.error('Erro na requisição:', error);
+  });
+
+
+
+
+
+
+
+})

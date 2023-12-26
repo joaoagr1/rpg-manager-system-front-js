@@ -8,29 +8,36 @@ function deleteSpell() {
     var apiUrl = `http://localhost:8080/${path}/${deleted_id}`;
     console.log(path)
   
-    // Fazer a requisição DELETE  
-    fetch(apiUrl, {
-      method: 'DELETE',
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-          window.location.reload()
-  
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Spell deletado com sucesso:', data);
-        window.location.reload()
-      })
-      .catch(error => {
-        console.error('Erro ao deletar o Spell:', error);
-        window.location.reload()
-  
-      });
-  }
-  
+    // Adicionar um alerta de confirmação
+    var confirmDelete = window.confirm("Tem certeza de que deseja deletar?");
+    if (confirmDelete) {
+        // Fazer a requisição DELETE  
+        fetch(apiUrl, {
+          method: 'DELETE',
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+              window.location.reload()
+      
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Spell deletado com sucesso:', data);
+            
+        })
+          .catch(error => {
+            console.error('Erro ao deletar o Spell:', error);
+            setTimeout(function() {
+                location.reload();
+            }, 300); // Atraso de 2 segundos  
+          });
+    } else {
+        console.log("Deleção cancelada.");
+    }
+}
+
 
   $('table').on('click', '.spell-name, .item-name', function () {
     // Esta função será chamada quando uma célula com a classe "spell-name" ou "item-name" for clicada

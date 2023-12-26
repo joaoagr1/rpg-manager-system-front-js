@@ -95,7 +95,8 @@
       <div id="attributeTable" class="col-md-6">
 
         <div class="attributeMod">
-          <table id="tableAttributes" class="table table-borderless character-sheet">
+          <table id="tableAttributes" class="table table-borderless character-sheet" data-toggle="modal"
+          data-target="#editAttributesModal">
             <thead>
               <tr>
                 <th>{Attribute}</th>
@@ -299,7 +300,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="descriptionModalLabel">Descrição</h5>
+          <h5 class="modal-title" id="descriptionModalLabel">Description:</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -457,6 +458,33 @@
   </div>
 
 
+  <div class="modal" id="editAttributesModal">
+    <div class="modal-dialog">
+      <div id="modalAttributtes" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Attributes</h5>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+          <p>Strength  💪: <input type="text" id="strEdit" class="square-input"></p>
+          <p>Dexterity  🗡️: <input type="text" id="dexEdit" class="square-input"></p>
+          <p>Constitution  💚: <input type="text" id="constEdit" class="square-input"></p>
+          <p>Intelligence  📘: <input type="text" id="intEdit" class="square-input"></p>
+          <p>Wisdom  ⌛: <input type="text" id="wisEdit" class="square-input"></p>
+          <p>Charisma  🎭: <input type="text" id="chaEdit" class="square-input"></p>
+          <p>Passive Perception 🔎: <input type="text" id="perEdit" class="square-input"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="editAttributesButton" type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -475,4 +503,8 @@
 
 <!-- PROFICIENCIAS
 SALVA GUARDA
-vida maxima/atual -->
+vida maxima/atual
+iniciativa
+speed-->
+
+

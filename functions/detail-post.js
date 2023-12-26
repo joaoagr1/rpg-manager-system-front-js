@@ -26,4 +26,9 @@ document.getElementById('postItemButton').addEventListener('click', function () 
     .catch((error) => {
         console.error('Error:', error);
     });
+
+
+    setTimeout(function() {
+        location.reload();
+    }, 300); // Atraso de 2 segundos
 });

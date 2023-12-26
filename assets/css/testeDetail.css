@@ -231,6 +231,7 @@ width: 255px;
 
       #tableAttributes{
         width: 190x;
+        cursor: pointer;
       }
 
       .class-attributes{
@@ -255,3 +256,17 @@ width: 255px;
         border-radius: 10px;
         border: none;
       }
+
+      .square-input {
+        border-radius: 10px;
+        max-width: 40px;
+        border: none;
+        background-color: rgba(121, 134, 134, 0.274);   
+        text-align: center;
+ }
+
+
+ #modalAttributtes{
+  width: 300px;
+ }
+ 

@@ -155,9 +155,8 @@ function fetchAttributesData() {
         'Wis ⌛': data[0].wisdom,
         'Cha 🎭': data[0].charisma,
         'Per 🔎': data[0].passivePerception,
-
-
       };
+      
       const table = document.getElementById('attributesTable');
 
       for (const attribute in attributes) {
