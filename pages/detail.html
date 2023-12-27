@@ -43,42 +43,42 @@
         <h2 class="text-center"></h2>
         <p></p>
         <div class="attribute">
-          <label for="strength">Name:</label>
+          <label for="strength">Name:📄</label>
           <p id="characterNameProfile">Johny Rolo</p>
         </div>
 
         <div class="attribute">
-          <label for="dexterity">Alignment:</label>
+          <label for="dexterity">Alignment:☯️</label>
           <p id="alignmentProfile">14</p>
         </div>
 
         <div class="attribute">
-          <label for="constitution">Race:</label>
+          <label for="constitution">Race:🧝🏻</label>
           <p id="raceProfile">Elf</p>
         </div>
 
         <div class="attribute">
-          <label for="intelligence">Class:</label>
+          <label for="intelligence">Class:🔨</label>
           <p id="classProfile">Warrior</p>
         </div>
 
         <div class="attribute">
-          <label for="wisdom">Background:</label>
+          <label for="wisdom">BG📜</label>
           <p id="backgroundProfile">Outlander</p>
         </div>
 
         <div class="attribute">
-          <label for="charisma">Level:</label>
+          <label for="charisma">LvL:🆙</label>
           <p id="levelProfile">14</p>
         </div>
 
         <div class="attribute">
-          <label for="charisma">Gp:</label>
+          <label for="charisma">GP:💰</label>
           <p id="gpProfile">14</p>
         </div>
 
         <div class="attribute">
-          <label for="charisma">CA:</label>
+          <label for="charisma">CA:🛡️</label>
           <p id="acProfile">14</p>
         </div>
 
@@ -96,7 +96,7 @@
 
         <div class="attributeMod">
           <table id="tableAttributes" class="table table-borderless character-sheet" data-toggle="modal"
-          data-target="#editAttributesModal">
+            data-target="#editAttributesModal">
             <thead>
               <tr>
                 <th>{Attribute}</th>
@@ -134,7 +134,8 @@
     </div>
     <div class="row">
       <div class="col-md-4">
-        <div id="div-tabela" class="items-container wd-1 div-tabela">
+        <div id="div-tabela" class="items-container wd-1 div-tabela" data-toggle="modal"
+          data-target="#editSkillslModal">
           <table class="table table-borderless">
             <thead>
               <tr>
@@ -144,71 +145,71 @@
             </thead>
             <tbody>
               <tr>
-                <td>Acrobatics</td>
+                <td>Acrobatics 🐒</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Animal Handling ⭐</td>
+                <td>Animal Handling 🐺</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Arcana</td>
+                <td>Arcana 🧙‍♂️</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Athletics</td>
+                <td>Athletics 💪</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Deception ⭐</td>
+                <td>Deception 🐍</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>History</td>
+                <td>History 📚</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Insight</td>
+                <td>Insight 💡</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Intimidation</td>
+                <td>Intimidation 😱</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Investigation</td>
+                <td>Investigation 🕵️</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Medicine</td>
+                <td>Medicine ⚕️</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Nature</td>
+                <td>Nature 🌿</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Perception</td>
+                <td>Perception 🔎</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Performance</td>
+                <td>Performance 🎭</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Persuasion</td>
+                <td>Persuasion 🗣️</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Religion</td>
+                <td>Religion ✝️</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Sleight of Hand</td>
+                <td>Sleight of Hand 👋</td>
                 <td>10</td>
               </tr>
               <tr>
-                <td>Stealth</td>
+                <td>Stealth 👥</td>
                 <td>10</td>
               </tr>
               <tr>
@@ -228,11 +229,11 @@
               <p></p>
               <center><label for="journal">{Character Journal 📜} </label></center>
               <textarea class="form-control" id="journal" rows="4" readonly data-toggle="modal"
-              data-target="#editJournalModal">
+                data-target="#editJournalModal">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
               </textarea>
               <!-- Botão para abrir o modal de edição do Journal  -->
-              <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Edit</button>
+              <!-- <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Edit</button> -->
             </div>
           </div>
         </div>
@@ -264,11 +265,11 @@
           <div class="form-group">
             <p></p>
             <center><label>Features </label></center>
-            <textarea class="form-control" id="features" rows="4" readonly >
+            <textarea class="form-control" id="features" rows="4" readonly>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
               </textarea>
             <!-- Botão para abrir o modal de edição do Journal  -->
-          <!-- <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Edit</button> -->
+            <!-- <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Edit</button> -->
           </div>
         </div>
       </div>
@@ -325,7 +326,7 @@
   <div class="modal fade" id="editInformationsModal" tabindex="-1" role="dialog"
     aria-labelledby="addCharacterModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div id="profileEdit" class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="characterModalLabel">Edit</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -335,12 +336,12 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="characterName">Character Name</label>
+              <label for="characterName">Name: 📄</label>
               <input type="text" class="form-control" id="characterName">
             </div>
 
             <div class="form-group">
-              <label for="alignment">Alignment</label>
+              <label for="alignment">Alignment: ☯️</label>
               <select class="form-control" id="alignment">
                 <option>Lawful Good</option>
                 <option>Neutral Good</option>
@@ -355,7 +356,7 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="class">Class</label>
+              <label for="class">Class: 🔨</label>
               <select class="form-control" id="class">
                 <!-- Substitua com as opções de classe de D&D 5ª edição -->
                 <option>Barbarian</option>
@@ -374,7 +375,7 @@
             </div>
 
             <div class="form-group">
-              <label for="level">Level</label>
+              <label for="level">Level: 🆙</label>
               <select class="form-control" id="level">
                 <!-- Opções de 1 a 20 -->
                 <option>1</option>
@@ -401,12 +402,12 @@
             </div>
 
             <div class="form-group">
-              <label>Armor Class</label>
+              <label>Armor Class: 🛡️</label>
               <input type="text" class="form-control" id="ac">
             </div>
 
             <div class="form-group">
-              <label>GP</label>
+              <label>Gold Pieces: 💰</label>
               <input type="text" class="form-control" id="gp">
             </div>
 
@@ -442,20 +443,20 @@
               <input type="text" class="form-control" id="itemNamePost">
             </div>
             <div class="mb-3">
-            <label for="message-text" class="col-form-label">Description:</label>
-            <textarea class="form-control" id="descriptionNamePost"></textarea>
+              <label for="message-text" class="col-form-label">Description:</label>
+              <textarea class="form-control" id="descriptionNamePost"></textarea>
+            </div>
+
+
+
+          </form>
         </div>
-
-
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button id="postItemButton" type="button" class="btn btn-primary">Save</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button id="postItemButton" type="button" class="btn btn-primary">Save</button>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
 
@@ -467,12 +468,12 @@
           <button type="button" class="close" data-dismiss="modal">×</button>
         </div>
         <div class="modal-body">
-          <p>Strength  💪: <input type="text" id="strEdit" class="square-input"></p>
-          <p>Dexterity  🗡️: <input type="text" id="dexEdit" class="square-input"></p>
-          <p>Constitution  💚: <input type="text" id="constEdit" class="square-input"></p>
-          <p>Intelligence  📘: <input type="text" id="intEdit" class="square-input"></p>
-          <p>Wisdom  ⌛: <input type="text" id="wisEdit" class="square-input"></p>
-          <p>Charisma  🎭: <input type="text" id="chaEdit" class="square-input"></p>
+          <p>Strength 💪: <input type="text" id="strEdit" class="square-input"></p>
+          <p>Dexterity 🗡️: <input type="text" id="dexEdit" class="square-input"></p>
+          <p>Constitution 💚: <input type="text" id="constEdit" class="square-input"></p>
+          <p>Intelligence 📘: <input type="text" id="intEdit" class="square-input"></p>
+          <p>Wisdom ⌛: <input type="text" id="wisEdit" class="square-input"></p>
+          <p>Charisma 🎭: <input type="text" id="chaEdit" class="square-input"></p>
           <p>Passive Perception 🔎: <input type="text" id="perEdit" class="square-input"></p>
         </div>
         <div class="modal-footer">
@@ -483,40 +484,87 @@
       </div>
     </div>
   </div>
-  
+
   <div class="modal fade" id="editJournalModal" tabindex="-1" role="dialog" aria-labelledby="editItemModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="characterModalLabel">Your Journal</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div id="journal-content" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="characterModalLabel">Your Journal</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+
+            <div class="mb-3">
+              <textarea class="form-control" id="editJournal"></textarea>
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="fetchPutJournal()" data-dismiss="modal">Save</button>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <form>
-          
-          <div class="mb-3">
-          <textarea class="form-control" id="editJournal"></textarea>
+    </div>
+  </div>
+
+
+  <div class="modal" id="editSkillslModal">
+    <div class="modal-dialog">
+      <div id="modalAttributtes" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Skills</h5>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+          <p>Acrobatics 🐒: <input type="text" id="strEdit" class="square-input"></p>
+          <p>Animal Handling 🐺: <input type="text" id="dexEdit" class="square-input"></p>
+          <p>Arcana 🧙‍♂️: <input type="text" id="constEdit" class="square-input"></p>
+          <p>Athletics 💪: <input type="text" id="intEdit" class="square-input"></p>
+          <p>Deception 🐍: <input type="text" id="wisEdit" class="square-input"></p>
+          <p>History 📚: <input type="text" id="chaEdit" class="square-input"></p>
+          <p>Insight 💡: <input type="text" id="perEdit" class="square-input"></p>
+          <p>Intimidation 😱: <input type="text" id="perEdit" class="square-input"></p>
+          <p>Investigation 🕵️: <input type="text" id="perEdit" class="square-input"></p>
+          <p>Medicine ⚕️: <input type="text" id="perEdit" class="square-input"></p>
+          <p>Nature 🌿  : <input type="text" id="perEdit" class="square-input"></p>
+          <p>Perception 🔎: <input type="text" id="perEdit" class="square-input"></p>
+          <p>Performance 🎭: <input type="text" id="perEdit" class="square-input"></p>
+          <p>Persuasion 🗣️: <input type="text" id="perEdit" class="square-input"></p>
+          <p>Religion ✝️: <input type="text" id="perEdit" class="square-input"></p>
+          <p>Sleight of Hand 👋: <input type="text" id="perEdit" class="square-input"></p>
+          <p>Stealth 👥: <input type="text" id="perEdit" class="square-input"></p>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="editAttributesButton" type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+
+        </div>
       </div>
-    </form>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="fetchPutJournal()" data-dismiss="modal">Save</button>
+    </div>
+  </div>
 
-    
+  
 
 
 
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="../functions/detail-get.js"></script>
-  <script src="../functions/detail-delete.js"></script>
-  <script src="../functions/detail-put.js"></script>
-  <script src="../functions/detail-post.js"></script>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="../functions/detail-get.js"></script>
+        <script src="../functions/detail-delete.js"></script>
+        <script src="../functions/detail-put.js"></script>
+        <script src="../functions/detail-post.js"></script>
 
 </body>
 
@@ -524,10 +572,15 @@
 
 
 
-<!-- PROFICIENCIAS
+<!--
+Condição
+Inspiração 
+Bonus de proficiencia
+Skills
+skills com PROFICIENCIAS
 SALVA GUARDA
 vida maxima/atual
 iniciativa
-speed-->
-
-
+speed
+BackStory
+-->
