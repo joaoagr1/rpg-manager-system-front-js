@@ -32,3 +32,36 @@ document.getElementById('postItemButton').addEventListener('click', function () 
         location.reload();
     }, 300); // Atraso de 2 segundos
 });
+
+
+function fetchAddSpell(){
+    characterId = localStorage.getItem('idCharacter');
+    nomeSpell = document.getElementById('SpellNamePost').value;
+    descriptionSpell = document.getElementById('descriptionSpellPost').value;
+
+
+    let url = 'http://localhost:8080/spells';
+    let data = {
+        character_id: characterId,  
+        name: nomeSpell, 
+        description: descriptionSpell
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
+
+    setTimeout(function() {
+        location.reload();
+    }, 300); // Atraso de 2 segundos
+}
