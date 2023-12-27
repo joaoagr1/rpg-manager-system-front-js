@@ -17,7 +17,7 @@ document.getElementById('informations').addEventListener('click', function () {
     var acEdicao = document.getElementById('ac').value;
     var gpEdicao = document.getElementById('gp').value;
 
- 
+
     idCharacter = localStorage.getItem('idCharacter');
 
     // URL da API ou servidor para onde você está enviando a requisição
@@ -68,7 +68,7 @@ document.getElementById('informations').addEventListener('click', function () {
 
 
 
-document.getElementById('tableAttributes').addEventListener('click', function(){
+document.getElementById('tableAttributes').addEventListener('click', function () {
   idCharacter = localStorage.getItem('idCharacter');
   const apiUrl = `http://localhost:8080/atributepoints/${idCharacter}`;
 
@@ -93,10 +93,10 @@ document.getElementById('tableAttributes').addEventListener('click', function(){
 
 
     })
- })
+})
 
 
- document.getElementById('editAttributesButton').addEventListener('click', function(){
+document.getElementById('editAttributesButton').addEventListener('click', function () {
   strRequest = document.getElementById('strEdit').value;
   dexRequest = document.getElementById('dexEdit').value;
   constRequest = document.getElementById('constEdit').value;
@@ -107,52 +107,95 @@ document.getElementById('tableAttributes').addEventListener('click', function(){
 
 
 
-// Defina o ID do personagem
-var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
+  // Defina o ID do personagem
+  var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
 
-// URL da API
-const apiUrl = `http://localhost:8080/atributepoints/${characterId}`;
+  // URL da API
+  const apiUrl = `http://localhost:8080/atributepoints/${characterId}`;
 
-// Corpo da requisição
-const requestBody = {
-  strength: strRequest,
-  passivePerception: perRequest,
-  dexterity: dexRequest,
-  constitution: constRequest,
-  intelligence: intRequest,
-  wisdom: wisRequest,
-  charisma: chaRequest
-};
+  // Corpo da requisição
+  const requestBody = {
+    strength: strRequest,
+    passivePerception: perRequest,
+    dexterity: dexRequest,
+    constitution: constRequest,
+    intelligence: intRequest,
+    wisdom: wisRequest,
+    charisma: chaRequest
+  };
 
-// Configurações da requisição
-const requestOptions = {
-  method: 'PUT',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(requestBody)
-};
+  // Configurações da requisição
+  const requestOptions = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+  };
 
-// Realiza a requisição
-fetch(apiUrl, requestOptions)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Requisição bem-sucedida. Resposta:', data);
-    location.reload();
-  })
-  .catch(error => {
-    console.error('Erro na requisição:', error);
-  });
-
-
-
-
-
+  // Realiza a requisição
+  fetch(apiUrl, requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Requisição bem-sucedida. Resposta:', data);
+      location.reload();
+    })
+    .catch(error => {
+      console.error('Erro na requisição:', error);
+    });
 
 
 })
+
+
+
+
+function fetchPutJournal() {
+
+  editedText = document.getElementById('editJournal').value
+  console.log("depuração: " + editedText)
+
+  var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
+
+  // URL da API
+  const apiUrl = `http://localhost:8080/journal/${characterId}`;
+
+  // Corpo da requisição
+  const requestBody = {
+    journal: editedText
+  };
+
+  // Configurações da requisição
+  const requestOptions = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+  };
+
+  // Realiza a requisição
+  fetch(apiUrl, requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Requisição bem-sucedida. Resposta:', data);
+      location.reload();
+    })
+    .catch(error => {
+      console.error('Erro na requisição:', error);
+    });
+
+
+
+}
+
