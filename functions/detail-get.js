@@ -38,6 +38,8 @@ function fetchProfileData() {
 
       document.getElementById('features').textContent = data.features;
       localStorage.setItem('features', data.features);
+      document.getElementById('editFeatures').value = data.features;
+
 
       document.getElementById('gpProfile').textContent = data.gp;
       localStorage.setItem('gp', data.gp);
@@ -150,7 +152,7 @@ function fetchAttributesData() {
 
       const attributes = {
         'Str 💪': data[0].strength,
-        'Dex 🗡️': data[0].dexterity,
+        'Dex 🎯': data[0].dexterity,
         'Const 💚': data[0].constitution,
         'Int 📘': data[0].intelligence,
         'Wis ⌛': data[0].wisdom,

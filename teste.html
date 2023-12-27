@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Imagem</title>
+</head>
+<body>
+
+    <input type="file" id="inputFile" />
+    <button onclick="uploadImage()">Upload</button>
+
+    <script>
+        function uploadImage() {
+            var inputFile = document.getElementById('inputFile');
+            var file = inputFile.files[0];
+
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                var base64Image = reader.result;
+                // Enviar a base64Image para o servidor Spring Boot (usando AJAX, por exemplo)
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                alert('Selecione uma imagem antes de fazer o upload.');
+            }
+        }
+    </script>
+
+</body>
+</html>

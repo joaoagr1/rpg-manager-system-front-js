@@ -3,7 +3,9 @@ body {
     /* background: url('../images/testetesteteste.jpg'); */
     background-size: cover;
     height: 100vh;
-     background-color: aliceblue; 
+         background-color: aliceblue; 
+
+     /* background-color: aliceblue;  */
     /* background-color:rgb(51, 57, 63) */
   }
 
@@ -208,6 +210,7 @@ margin-top: 8px;
 margin-left: 0px;
 border-radius: 10px;
 width: 255px;
+max-height: 320px;
 
 }
 
@@ -285,4 +288,16 @@ width: 255px;
 
  #journal-content{
   margin-left: -22px;
+ }
+
+ #features{
+  height: 250px;
+  max-height: 250px;
+  min-height: 250px;
+
+ }
+
+ #editFeatures{
+  min-height: 600px;
+
  }

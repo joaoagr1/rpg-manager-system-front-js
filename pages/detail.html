@@ -242,7 +242,7 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <div class="items-container">
+        <div id="div-tabela" class="items-container">
           <h4></h4>
 
           <table class="table table-hover table-borderless character-table">
@@ -265,8 +265,9 @@
         <div id="featuresInfo" class="character-sheet">
           <div class="form-group">
             <p></p>
-            <center><label>Features </label></center>
-            <textarea class="form-control" id="features" rows="4" readonly>
+            <center><label>{Features} </label></center>
+            <textarea class="form-control" id="features" rows="4" readonly data-toggle="modal"
+            data-target="#editFeaturesModal">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
               </textarea>
             <!-- Botão para abrir o modal de edição do Journal  -->
@@ -470,7 +471,7 @@
         </div>
         <div class="modal-body">
           <p>Strength 💪: <input type="text" id="strEdit" class="square-input"></p>
-          <p>Dexterity 🗡️: <input type="text" id="dexEdit" class="square-input"></p>
+          <p>Dexterity 🎯: <input type="text" id="dexEdit" class="square-input"></p>
           <p>Constitution 💚: <input type="text" id="constEdit" class="square-input"></p>
           <p>Intelligence 📘: <input type="text" id="intEdit" class="square-input"></p>
           <p>Wisdom ⌛: <input type="text" id="wisEdit" class="square-input"></p>
@@ -582,6 +583,40 @@
           </div>
         </div>
       </div>
+    </div>
+
+
+
+
+
+
+      <div class="modal fade" id="editFeaturesModal" tabindex="-1" role="dialog" aria-labelledby="editItemModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div id="features-content" class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="characterModalLabel">Features</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+  
+              <div class="mb-3">
+                <textarea class="form-control" id="editFeatures"></textarea>
+              </div>
+            </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="fetchPutFeatures()" data-dismiss="modal">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
 
 
@@ -608,7 +643,7 @@
 <!--
 Condição
 Inspiração 
-Bonus de proficiencia
+    Bonus de proficiencia
 Skills
 skills com PROFICIENCIAS
 SALVA GUARDA

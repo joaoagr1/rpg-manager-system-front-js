@@ -199,3 +199,50 @@ function fetchPutJournal() {
 
 }
 
+
+
+function fetchPutFeatures(){
+  
+  
+  editedFeatures = document.getElementById('editFeatures').value
+  console.log("depuração: " + editedFeatures)
+
+  var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
+
+  // URL da API
+  const apiUrl = `http://localhost:8080/characters/${characterId}`;
+
+  // Corpo da requisição
+  const requestBody = {
+    features: editedFeatures
+  };
+
+  // Configurações da requisição
+  const requestOptions = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+  };
+
+  // Realiza a requisição
+  fetch(apiUrl, requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Requisição bem-sucedida. Resposta:', data);
+      location.reload();
+    })
+    .catch(error => {
+      console.error('Erro na requisição:', error);
+    });
+
+
+
+
+}
