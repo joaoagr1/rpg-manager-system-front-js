@@ -110,6 +110,7 @@ function fetchJournal() {
     .then(data => {
       document.getElementById('journal').textContent = data[0].journal;
       console.log("journal: " + data[0].journal)
+      document.getElementById('editJournal').value = data[0].journal
     })
     .catch(error => console.error('Erro ao obter dados do Journal:', error));
 }

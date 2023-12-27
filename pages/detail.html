@@ -227,7 +227,8 @@
             <div class="form-group">
               <p></p>
               <center><label for="journal">{Character Journal 📜} </label></center>
-              <textarea class="form-control" id="journal" rows="4" readonly>
+              <textarea class="form-control" id="journal" rows="4" readonly data-toggle="modal"
+              data-target="#editJournalModal">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
               </textarea>
               <!-- Botão para abrir o modal de edição do Journal  -->
@@ -263,11 +264,11 @@
           <div class="form-group">
             <p></p>
             <center><label>Features </label></center>
-            <textarea class="form-control" id="features" rows="4" readonly>
+            <textarea class="form-control" id="features" rows="4" readonly >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
               </textarea>
             <!-- Botão para abrir o modal de edição do Journal  -->
-            <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Edit</button>
+          <!-- <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Edit</button> -->
           </div>
         </div>
       </div>
@@ -483,6 +484,28 @@
     </div>
   </div>
   
+  <div class="modal fade" id="editJournalModal" tabindex="-1" role="dialog" aria-labelledby="editItemModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="characterModalLabel">Your Journal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          
+          <div class="mb-3">
+          <textarea class="form-control" id="editJournal"></textarea>
+      </div>
+    </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="fetchPutJournal()" data-dismiss="modal">Save</button>
+
+    
 
 
 
