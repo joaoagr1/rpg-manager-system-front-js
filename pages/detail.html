@@ -82,6 +82,11 @@
           <p id="acProfile">14</p>
         </div>
 
+        <div class="attribute">
+          <label for="charisma">Prof:⭐</label>
+          <p id="profProfile">14</p>
+        </div>
+
 
 
 
@@ -146,75 +151,75 @@
             <tbody>
               <tr>
                 <td>Acrobatics 🐒</td>
-                <td>10</td>
+                <td id="acrobaticsSkill">10</td>
               </tr>
               <tr>
                 <td>Animal Handling 🐺</td>
-                <td>10</td>
+                <td id="animal-handingSkill">10</td>
               </tr>
               <tr>
                 <td>Arcana 🧙‍♂️</td>
-                <td>10</td>
+                <td id="arcanaSkill">10</td>
               </tr>
               <tr>
                 <td>Athletics 💪</td>
-                <td>10</td>
+                <td id="athleticsSkill">10</td>
               </tr>
               <tr>
                 <td>Deception 🐍</td>
-                <td>10</td>
+                <td id="deceptionSkill">10</td>
               </tr>
               <tr>
                 <td>History 📚</td>
-                <td>10</td>
+                <td id="histoySkill">10</td>
               </tr>
               <tr>
                 <td>Insight 💡</td>
-                <td>10</td>
+                <td id="insightSkill">10</td>
               </tr>
               <tr>
                 <td>Intimidation 😱</td>
-                <td>10</td>
+                <td id="intimidationtSkill">10</td>
               </tr>
               <tr>
                 <td>Investigation 🕵️</td>
-                <td>10</td>
+                <td id="investigationSkill">10</td>
               </tr>
               <tr>
                 <td>Medicine ⚕️</td>
-                <td>10</td>
+                <td id="medicineSkill">10</td>
               </tr>
               <tr>
                 <td>Nature 🌿</td>
-                <td>10</td>
+                <td id="natureSkill">10</td>
               </tr>
               <tr>
                 <td>Perception 🔎</td>
-                <td>10</td>
+                <td id="perceptionSkill">10</td>
               </tr>
               <tr>
                 <td>Performance 🎭</td>
-                <td>10</td>
+                <td id="performanceSkill">10</td>
               </tr>
               <tr>
                 <td>Persuasion 🗣️</td>
-                <td>10</td>
+                <td id="persuasionSkill">10</td>
               </tr>
               <tr>
                 <td>Religion ✝️</td>
-                <td>10</td>
+                <td id="religionSkill">10</td>
               </tr>
               <tr>
                 <td>Sleight of Hand 👋</td>
-                <td>10</td>
+                <td id="sleightSkill">10</td>
               </tr>
               <tr>
                 <td>Stealth 👥</td>
-                <td>10</td>
+                <td id="stealthSkill">10</td>
               </tr>
               <tr>
-                <td>Survival</td>
-                <td>10</td>
+                <td>Survival 🔥</td>
+                <td id="survivalSkill">10</td>
               </tr>
             </tbody>
           </table>
@@ -522,29 +527,30 @@
           <button type="button" class="close" data-dismiss="modal">×</button>
         </div>
         <div class="modal-body">
-          <p>Acrobatics 🐒: <input type="text" id="strEdit" class="square-input"></p>
-          <p>Animal Handling 🐺: <input type="text" id="dexEdit" class="square-input"></p>
-          <p>Arcana 🧙‍♂️: <input type="text" id="constEdit" class="square-input"></p>
-          <p>Athletics 💪: <input type="text" id="intEdit" class="square-input"></p>
-          <p>Deception 🐍: <input type="text" id="wisEdit" class="square-input"></p>
-          <p>History 📚: <input type="text" id="chaEdit" class="square-input"></p>
-          <p>Insight 💡: <input type="text" id="perEdit" class="square-input"></p>
-          <p>Intimidation 😱: <input type="text" id="perEdit" class="square-input"></p>
-          <p>Investigation 🕵️: <input type="text" id="perEdit" class="square-input"></p>
-          <p>Medicine ⚕️: <input type="text" id="perEdit" class="square-input"></p>
-          <p>Nature 🌿 : <input type="text" id="perEdit" class="square-input"></p>
-          <p>Perception 🔎: <input type="text" id="perEdit" class="square-input"></p>
-          <p>Performance 🎭: <input type="text" id="perEdit" class="square-input"></p>
-          <p>Persuasion 🗣️: <input type="text" id="perEdit" class="square-input"></p>
-          <p>Religion ✝️: <input type="text" id="perEdit" class="square-input"></p>
-          <p>Sleight of Hand 👋: <input type="text" id="perEdit" class="square-input"></p>
-          <p>Stealth 👥: <input type="text" id="perEdit" class="square-input"></p>
+          <p>Acrobatics 🐒: <input type="text" id="acrobaticsSkillEdit" class="square-input"></p>
+          <p>Animal Handling 🐺: <input type="text" id="animalHandlingSkillEdit" class="square-input"></p>
+          <p>Arcana 🧙‍♂️: <input type="text" id="arcanaSkillEdit" class="square-input"></p>
+          <p>Athletics 💪: <input type="text" id="athleticsSkillEdit" class="square-input"></p>
+          <p>Deception 🐍: <input type="text" id="deceptionSkillEdit" class="square-input"></p>
+          <p>History 📚: <input type="text" id="histoySkillEdit" class="square-input"></p>
+          <p>Insight 💡: <input type="text" id="insightSkillEdit" class="square-input"></p>
+          <p>Intimidation 😱: <input type="text" id="intimidationtSkillEdit" class="square-input"></p>
+          <p>Investigation 🕵️: <input type="text" id="investigationSkillEdit" class="square-input"></p>
+          <p>Medicine ⚕️: <input type="text" id="medicineSkillEdit" class="square-input"></p>
+          <p>Nature 🌿 : <input type="text" id="natureSkillEdit" class="square-input"></p>
+          <p>Perception 🔎: <input type="text" id="perceptionSkillEdit" class="square-input"></p>
+          <p>Performance 🎭: <input type="text" id="performanceSkillEdit" class="square-input"></p>
+          <p>Persuasion 🗣️: <input type="text" id="persuasionSkillEdit" class="square-input"></p>
+          <p>Religion ✝️: <input type="text" id="religionSkillEdit" class="square-input"></p>
+          <p>Sleight of Hand 👋: <input type="text" id="sleightSkillEdit" class="square-input"></p>
+          <p>Stealth 👥: <input type="text" id="stealthSkillEdit" class="square-input"></p>
+          <p>Survival 🔥: <input type="text" id="survivalSkillEdit" class="square-input"></p>
 
 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button id="editAttributesButton" type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+          <button id="editSkillsButton" type="button" class="btn btn-primary" onclick="" data-dismiss="modal">Save</button>
 
         </div>
       </div>
@@ -643,7 +649,6 @@
 <!--
 Condição
 Inspiração 
-    Bonus de proficiencia
 Skills
 skills com PROFICIENCIAS
 SALVA GUARDA

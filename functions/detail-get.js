@@ -1,10 +1,13 @@
 // Functions for Populating Fields on Page Load
 window.onload = function () {
+  fetchSkills();
   fetchProfileData();
   fetchItems();
   fetchSpells();
   fetchAttributesData();
+  fetchProficiency()
   fetchJournal();
+  
 };
 
 
@@ -182,4 +185,93 @@ function fetchAttributesData() {
 
     })
     .catch(error => console.error('Erro ao obter dados do perfil:', error));
+}
+
+
+function fetchProficiency() {
+  var level = localStorage.getItem('level');
+  var proficiencyBonus;
+
+  if (level > 0 && level <= 5) {
+    proficiencyBonus = 2;
+  } else if (level > 5 && level <= 9) {
+    proficiencyBonus = 3;
+  }
+
+  document.getElementById('profProfile').textContent = proficiencyBonus;
+}
+
+
+function fetchSkills(){
+  console.log("ARCANA: ")
+
+
+  idCharacter = localStorage.getItem('idCharacter');
+  const apiUrl = `http://localhost:8080/skills/${idCharacter}`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+
+      document.getElementById('acrobaticsSkill').textContent = data[0].acrobatics;
+      document.getElementById('acrobaticsSkillEdit').value = data[0].acrobatics;
+
+      document.getElementById('animal-handingSkill').textContent = data[0].animal_Handling;
+      document.getElementById('animalHandlingSkillEdit').value = data[0].animal_Handling;
+
+      document.getElementById('arcanaSkill').textContent = data[0].arcana;
+      document.getElementById('arcanaSkillEdit').value = data[0].arcana;
+
+
+      document.getElementById('athleticsSkill').textContent = data[0].athletics;
+      document.getElementById('athleticsSkillEdit').value = data[0].animal_Handling;
+
+      document.getElementById('deceptionSkill').textContent = data[0].deception;
+      document.getElementById('deceptionSkillEdit').value = data[0].deception;
+
+      document.getElementById('histoySkill').textContent = data[0].history;
+      document.getElementById('histoySkillEdit').value = data[0].history;
+
+      document.getElementById('insightSkill').textContent = data[0].insight;
+      document.getElementById('insightSkillEdit').value = data[0].insight;
+
+      document.getElementById('intimidationtSkill').textContent = data[0].intimidation;
+      document.getElementById('intimidationtSkillEdit').value = data[0].intimidation;
+
+      document.getElementById('investigationSkill').textContent = data[0].investigation;
+      document.getElementById('investigationSkillEdit').value = data[0].investigation;
+
+      document.getElementById('medicineSkill').textContent = data[0].medicine;
+      document.getElementById('medicineSkillEdit').value = data[0].medicine;
+
+      document.getElementById('natureSkill').textContent = data[0].nature;
+      document.getElementById('natureSkillEdit').value = data[0].nature;
+
+      document.getElementById('perceptionSkill').textContent = data[0].perception;
+      document.getElementById('perceptionSkillEdit').value = data[0].perception;
+
+      document.getElementById('performanceSkill').textContent = data[0].performance;
+      document.getElementById('performanceSkillEdit').value = data[0].performance;
+
+
+      document.getElementById('persuasionSkill').textContent = data[0].persuasion;
+      document.getElementById('persuasionSkillEdit').value = data[0].persuasion;
+
+      document.getElementById('religionSkill').textContent = data[0].religion;
+      document.getElementById('religionSkillEdit').value = data[0].religion;
+
+      document.getElementById('sleightSkill').textContent = data[0].sleight_of_Hand;
+      document.getElementById('sleightSkillEdit').value = data[0].sleight_of_Hand;
+
+      document.getElementById('stealthSkill').textContent = data[0].stealth;
+      document.getElementById('stealthSkillEdit').value = data[0].stealth;
+
+      document.getElementById('survivalSkill').textContent = data[0].survival;
+      document.getElementById('survivalSkillEdit').value = data[0].survival;
+
+
+      
+    })
+    .catch(error => console.error('Erro ao obter dados do Journal:', error));
+
 }

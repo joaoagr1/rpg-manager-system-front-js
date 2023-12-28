@@ -9,6 +9,7 @@ document.getElementById('informations').addEventListener('click', function () {
   document.getElementById('gp').value = localStorage.getItem('gp')
 
   document.getElementById('editCharacterButton').addEventListener('click', function () {
+    event.preventDefault();
 
     var nomeEdicao = document.getElementById('characterName').value;
     var alignmentEdicao = document.getElementById('alignment').value;
@@ -50,12 +51,15 @@ document.getElementById('informations').addEventListener('click', function () {
         if (!response.ok) {
           throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
         }
+        window.location.reload()
+
         return response.json(); // Se a resposta estiver em JSON
         // Outras opções: response.text(), response.blob(), etc.
+        
       })
       .then(data => {
         console.log('Resposta da API:', data);
-        // Faça algo com os dados recebidos
+        window.location.reload()
       })
       .catch(error => {
         console.error('Erro na requisição:', error);
@@ -63,7 +67,7 @@ document.getElementById('informations').addEventListener('click', function () {
       });
 
     window.location.reload()
-  });
+  }); 
 });
 
 
@@ -246,3 +250,93 @@ function fetchPutFeatures(){
 
 
 }
+
+
+document.getElementById('editSkillsButton').addEventListener('click', function() {
+
+    event.preventDefault();
+    console.log("Botao Funcionando")
+    newAcrocatics = document.getElementById('acrobaticsSkillEdit').value
+    newAnimalHandling = document.getElementById('animalHandlingSkillEdit').value
+    newArcana = document.getElementById('arcanaSkillEdit').value
+    newAthletics = document.getElementById('athleticsSkillEdit').value
+    newDeception = document.getElementById('deceptionSkillEdit').value
+    newHistory = document.getElementById('histoySkillEdit').value
+    newInsight = document.getElementById('insightSkillEdit').value
+    newIntimidation = document.getElementById('intimidationtSkillEdit').value
+    newInvestigation = document.getElementById('investigationSkillEdit').value
+    newMedicine = document.getElementById('medicineSkillEdit').value
+    newNature = document.getElementById('natureSkillEdit').value
+    newPerception = document.getElementById('perceptionSkillEdit').value
+    newPerformance = document.getElementById('performanceSkillEdit').value
+    newPersuasion = document.getElementById('persuasionSkillEdit').value
+    newReligion = document.getElementById('religionSkillEdit').value
+    newSleight_of_Hand = document.getElementById('sleightSkillEdit').value
+    newStealth = document.getElementById('stealthSkillEdit').value
+     newSurvival = document.getElementById('survivalSkillEdit').value
+
+
+
+    editedFeatures = document.getElementById('editFeatures').value
+  console.log("depuração: " + editedFeatures)
+
+  var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
+
+  // URL da API
+  const apiUrl = `http://localhost:8080/skills/${characterId}`;
+
+  // Corpo da requisição
+  const requestBody = {
+    acrobatics: `${newAcrocatics}`,
+    animal_Handling: `${newAnimalHandling}`,
+    arcana: `${newArcana}`,
+    athletics: `${newAthletics}`,
+    deception: `${newDeception}`,
+    history: `${newHistory}`,
+    insight: `${newInsight}`,
+    intimidation: `${newIntimidation}`,
+    investigation: `${newInvestigation}`,
+    medicine: `${newMedicine}`,
+    nature: `${newNature}`,
+    perception: `${newPerception}`,
+    performance: `${newPerformance}`,
+    persuasion: `${newPersuasion}`,
+    religion: `${newReligion}`,
+    sleight_of_Hand: `${newSleight_of_Hand}`,
+    stealth: `${newStealth}`,
+    survival: `${newSurvival}`
+
+
+  };
+
+  // Configurações da requisição
+  const requestOptions = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+  };
+
+  // Realiza a requisição
+  fetch(apiUrl, requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Requisição bem-sucedida. Resposta:', data);
+      location.reload();
+    })
+    .catch(error => {
+      console.error('Erro na requisição:', error);
+    });
+
+
+})    
+
+
+
+  

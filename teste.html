@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=6.0">
     <title>Upload de Imagem</title>
 </head>
 <body>
 
-    <input type="file" id="inputFile" />
+    <input type="file" id="" >
     <button onclick="uploadImage()">Upload</button>
 
     <script>
@@ -20,6 +20,7 @@
             reader.onloadend = function () {
                 var base64Image = reader.result;
                 // Enviar a base64Image para o servidor Spring Boot (usando AJAX, por exemplo)
+                console.log(base64Image);
             };
 
             if (file) {
