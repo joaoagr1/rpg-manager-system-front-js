@@ -15,19 +15,17 @@
 
 <body>
 
-  <div class="header">
-    <!-- Conteúdo do cabeçalho aqui se necessário -->
-  </div>
-
   <div class="container">
-    <!-- Tabelas de Items e Spells lado a lado -->
+    <!-- Imagem and Character informations side by side - first row -->
     <div class="row">
       <div id="imageCharacter" class="character-sheet img-container">
-        <!-- INSERIR IMAGEM -->
+
+        <!-- Character image -->
         <img
-          src="https://images.nightcafe.studio/jobs/ajCgkL2iKASgwCVlLgNA/ajCgkL2iKASgwCVlLgNA--1--ca6wb.jpg?tr=w-1600,c-at_max"
+          src="https://preview.redd.it/6anj00kplmd71.jpg?auto=webp&s=f9dc217004c4687fce4c4cccf95ac64efc33669a"
           alt="Imagem Exemplo">
 
+        <!-- Character life bar -->
         <div id="myProgress">
           <div id="myBar">
             <center>
@@ -38,67 +36,65 @@
         </div>
       </div>
 
+      <!-- Character informations -->
       <div id="informations" class="character-sheet div-tabela" data-toggle="modal"
         data-target="#editInformationsModal">
         <h2 class="text-center"></h2>
         <p></p>
         <div class="attribute">
           <label for="strength">Name:📄</label>
-          <p id="characterNameProfile">Johny Rolo</p>
+          <p id="characterNameProfile"></p>
         </div>
 
         <div class="attribute">
           <label for="dexterity">Alignment:☯️</label>
-          <p id="alignmentProfile">14</p>
+          <p id="alignmentProfile"></p>
         </div>
 
         <div class="attribute">
           <label for="constitution">Race:🧝🏻</label>
-          <p id="raceProfile">Elf</p>
+          <p id="raceProfile"></p>
         </div>
 
         <div class="attribute">
           <label for="intelligence">Class:🔨</label>
-          <p id="classProfile">Warrior</p>
+          <p id="classProfile"></p>
         </div>
 
         <div class="attribute">
           <label for="wisdom">BG:📜</label>
-          <p id="backgroundProfile">Outlander</p>
+          <p id="backgroundProfile"></p>
         </div>
 
         <div class="attribute">
           <label for="charisma">LvL:🆙</label>
-          <p id="levelProfile">14</p>
+          <p id="levelProfile"></p>
         </div>
 
         <div class="attribute">
           <label for="charisma">GP:💰</label>
-          <p id="gpProfile">14</p>
+          <p id="gpProfile"></p>
         </div>
 
         <div class="attribute">
-          <label for="charisma">CA:🛡️</label>
-          <p id="acProfile">14</p>
+          <label for="charisma">AC:🛡️</label>
+          <p id="acProfile"></p>
         </div>
 
         <div class="attribute">
-          <label for="charisma">Prof:⭐</label>
-          <p id="profProfile">14</p>
+          <label for="charisma">PB:⭐</label>
+          <p id="profProfile"></p>
         </div>
-
-
-
-
-
-
       </div>
-
-
     </div>
+
+
+
+    <!-- Attributes table and Items table side by side - second row -->
     <div class="row">
       <div id="attributeTable" class="col-md-6">
 
+        <!-- Character Attributes -->
         <div class="attributeMod">
           <table id="tableAttributes" class="table table-borderless character-sheet" data-toggle="modal"
             data-target="#editAttributesModal">
@@ -110,17 +106,17 @@
               </tr>
             </thead>
             <tbody id="attributesTable">
-              <!-- Attributes will be inserted here -->
+              <!-- Attributes will be inserted here by javascript -->
             </tbody>
           </table>
         </div>
 
+
       </div>
       <div class="col-md-6">
 
+        <!-- Character Items -->
         <div id="div-tabela">
-          <h4></h4>
-
           <table class="table table-hover table-borderless character-table div-tabela">
             <thead>
               <tr>
@@ -130,15 +126,21 @@
                   </button></th>
               </tr>
             </thead>
-            <!-- Dados da tabela serão preenchidos dinamicamente aqui -->
+            <!-- Items will be inserted here by javascript -->
             <tbody id="itemsTableBody"></tbody>
           </table>
 
         </div>
       </div>
     </div>
+
+
+        <!-- Skills table and Journal side by side - third row -->
+
     <div class="row">
       <div class="col-md-4">
+        
+        <!-- Character Skills -->
         <div id="div-tabela" class="items-container wd-1 div-tabela" data-toggle="modal"
           data-target="#editSkillslModal">
           <table class="table table-borderless">
@@ -151,75 +153,75 @@
             <tbody>
               <tr>
                 <td>Acrobatics 🐒</td>
-                <td id="acrobaticsSkill">10</td>
+                <td id="acrobaticsSkill"></td>
               </tr>
               <tr>
                 <td>Animal Handling 🐺</td>
-                <td id="animal-handingSkill">10</td>
+                <td id="animal-handingSkill"></td>
               </tr>
               <tr>
                 <td>Arcana 🧙‍♂️</td>
-                <td id="arcanaSkill">10</td>
+                <td id="arcanaSkill"></td>
               </tr>
               <tr>
                 <td>Athletics 💪</td>
-                <td id="athleticsSkill">10</td>
+                <td id="athleticsSkill"></td>
               </tr>
               <tr>
                 <td>Deception 🐍</td>
-                <td id="deceptionSkill">10</td>
+                <td id="deceptionSkill"></td>
               </tr>
               <tr>
                 <td>History 📚</td>
-                <td id="histoySkill">10</td>
+                <td id="histoySkill"></td>
               </tr>
               <tr>
                 <td>Insight 💡</td>
-                <td id="insightSkill">10</td>
+                <td id="insightSkill"></td>
               </tr>
               <tr>
                 <td>Intimidation 😱</td>
-                <td id="intimidationtSkill">10</td>
+                <td id="intimidationtSkill"></td>
               </tr>
               <tr>
                 <td>Investigation 🕵️</td>
-                <td id="investigationSkill">10</td>
+                <td id="investigationSkill"></td>
               </tr>
               <tr>
                 <td>Medicine ⚕️</td>
-                <td id="medicineSkill">10</td>
+                <td id="medicineSkill"></td>
               </tr>
               <tr>
                 <td>Nature 🌿</td>
-                <td id="natureSkill">10</td>
+                <td id="natureSkill"></td>
               </tr>
               <tr>
                 <td>Perception 🔎</td>
-                <td id="perceptionSkill">10</td>
+                <td id="perceptionSkill"></td>
               </tr>
               <tr>
                 <td>Performance 🎭</td>
-                <td id="performanceSkill">10</td>
+                <td id="performanceSkill"></td>
               </tr>
               <tr>
                 <td>Persuasion 🗣️</td>
-                <td id="persuasionSkill">10</td>
+                <td id="persuasionSkill"></td>
               </tr>
               <tr>
                 <td>Religion ✝️</td>
-                <td id="religionSkill">10</td>
+                <td id="religionSkill"></td>
               </tr>
               <tr>
                 <td>Sleight of Hand 👋</td>
-                <td id="sleightSkill">10</td>
+                <td id="sleightSkill"></td>
               </tr>
               <tr>
                 <td>Stealth 👥</td>
-                <td id="stealthSkill">10</td>
+                <td id="stealthSkill"></td>
               </tr>
               <tr>
                 <td>Survival 🔥</td>
-                <td id="survivalSkill">10</td>
+                <td id="survivalSkill"></td>
               </tr>
             </tbody>
           </table>
@@ -228,17 +230,16 @@
       </div>
       <div class="col-md-6">
         <div class="items-container">
-          <!-- aqui vem os atributos -->
+
+          <!-- Character Journal -->
           <div id="journalInfo" class="character-sheet">
             <div class="form-group">
               <p></p>
-              <center><label for="journal">{Character Journal 📜} </label></center>
+              <center><label>{Character Journal 📜} </label></center>
               <textarea class="form-control" id="journal" rows="4" readonly data-toggle="modal"
                 data-target="#editJournalModal">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
               </textarea>
-              <!-- Botão para abrir o modal de edição do Journal  -->
-              <!-- <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Edit</button> -->
+             
             </div>
           </div>
         </div>
@@ -273,10 +274,8 @@
             <center><label>{Features} </label></center>
             <textarea class="form-control" id="features" rows="4" readonly data-toggle="modal"
             data-target="#editFeaturesModal">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et metus id elit scelerisque dignissim. Nulla facilisi. Donec quis sapien vel elit accumsan cursus non non libero. Nam viverra, erat nec tempus placerat, tortor dolor vulputate justo, ac gravida justo quam sit amet ligula. Vivamus auctor, justo in gravida posuere, dolor erat efficitur justo, vel ultricies mi tellus ac lectus.
               </textarea>
-            <!-- Botão para abrir o modal de edição do Journal  -->
-            <!-- <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editJournalModal">Edit</button> -->
+            
           </div>
         </div>
       </div>
@@ -365,7 +364,6 @@
             <div class="form-group">
               <label for="class">Class: 🔨</label>
               <select class="form-control" id="class">
-                <!-- Substitua com as opções de classe de D&D 5ª edição -->
                 <option>Barbarian</option>
                 <option>Bard</option>
                 <option>Warlock</option>
@@ -647,14 +645,18 @@
 
 
 <!--
+
 Condição
-Inspiração 
-Skills
+ 
 skills com PROFICIENCIAS
 SALVA GUARDA
+BackStory
+Imagem personagem
+
+
+Inspiração
 vida maxima/atual
 iniciativa
 speed
-BackStory
-Imagem personagem
+
 -->

@@ -125,12 +125,15 @@ min-height: 280px;
 max-height: 2800px;
 padding-top: 1px;
 margin-top: 9px;
+padding-bottom: 1px;
 }
 
 #journal{
 height: 160px;
-max-height: 160px;
-min-height: 100px;
+max-height: 220px;
+min-height: 220px;
+cursor: pointer;
+
 }
 label{
 font-weight: bold;
@@ -294,6 +297,7 @@ max-height: 320px;
   height: 250px;
   max-height: 250px;
   min-height: 250px;
+  cursor: pointer;
 
  }
 
