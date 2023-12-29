@@ -65,3 +65,26 @@ function fetchAddSpell(){
         location.reload();
     }, 300); // Atraso de 2 segundos
 }
+
+
+function chooseFile() {
+    document.getElementById('fileInput').click();
+}
+
+function previewImage(input) {
+    const preview = document.getElementById('imagePreview');
+    const file = input.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    } else {
+        // Caso o usuário cancele a escolha da imagem
+        preview.src = '#';
+    }
+}

@@ -23,7 +23,9 @@
         <!-- Character image -->
         <img
           src="https://preview.redd.it/6anj00kplmd71.jpg?auto=webp&s=f9dc217004c4687fce4c4cccf95ac64efc33669a"
-          alt="Imagem Exemplo">
+          alt="Imagem Exemplo" onclick="chooseFile()">
+          <input type="file" id="fileInput" accept="image/*" onchange="previewImage(this)" />
+
 
         <!-- Character life bar -->
         <div id="myProgress">

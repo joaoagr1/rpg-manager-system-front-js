@@ -3,7 +3,7 @@ body {
     /* background: url('../images/testetesteteste.jpg'); */
     background-size: cover;
     height: 100vh;
-         background-color:RGB(145, 199, 177) 
+         background-color:RGB(222, 221, 175)
 
      /* background-color: aliceblue;  */
     /* background-color:rgb(51, 57, 63) */
@@ -305,3 +305,7 @@ max-height: 320px;
   min-height: 600px;
 
  }
+
+ #fileInput {
+  display: none; /* Esconde o input file padrão */
+}
