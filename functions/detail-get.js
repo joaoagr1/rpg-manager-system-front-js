@@ -11,6 +11,14 @@ window.onload = function () {
 };
 
 
+idCharacter = localStorage.getItem('idCharacter');
+const endpoint = `http://localhost:8080/characters/foto/${idCharacter}`;
+
+// Referencie a tag <img> pelo ID
+const imgElement = document.getElementById('fotoPersonagem');
+
+// Modifique a src da tag <img>
+imgElement.src = endpoint;
 
 
 function fetchProfileData() {
