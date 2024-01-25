@@ -88,3 +88,36 @@ function previewImage(input) {
         preview.src = '#';
     }
 }
+
+
+function openFilePicker() {
+    document.getElementById('inputFile').click();
+}
+
+function uploadFile() {
+    const inputFile = document.getElementById('inputFile');
+    const fotoPersonagem = document.getElementById('fotoPersonagem');
+
+    const file = inputFile.files[0];
+    if (file) {
+        const formData = new FormData();
+        formData.append('foto', file);
+
+        var characterId = localStorage.getItem('idCharacter');
+
+
+        fetch(`http://localhost:8080/characters/uploadFoto/${characterId}`, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.response())
+        .then(data => {
+            // Atualize a imagem src ou faça qualquer outra coisa com a resposta do servidor
+            console.log(data);
+            fotoPersonagem.src = data.url; // Supondo que o servidor retorna a URL da imagem
+        })
+        .catch(error => console.error('Erro ao enviar a imagem', error));
+    }
+
+    location.reload()
+}
