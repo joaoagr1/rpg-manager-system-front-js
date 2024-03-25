@@ -5,7 +5,7 @@ document.getElementById("infoCharacter").disabled = true;
 
 function fetchCharacters() {
     var idEnvironment = localStorage.getItem('idEnvironment');
-    const apiUrl = `http://localhost:8080/characters/user/${idEnvironment}`;
+    const apiUrl = `https://thankful-bone-production.up.railway.app/characters/user/${idEnvironment}`;
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -72,7 +72,7 @@ function confirmarExclusao() {
         // Coloque aqui o código para excluir o item
         idCharacter = localStorage.getItem('idCharacter');
         console.log(idCharacter)
-        const apiUrl = `http://localhost:8080/characters/${idCharacter}`;
+        const apiUrl = `https://thankful-bone-production.up.railway.app/characters/${idCharacter}`;
 
         fetch(apiUrl, {
             method: 'DELETE',
@@ -146,7 +146,7 @@ document.getElementById('createCharacterButtton').addEventListener('click', func
         };
 
         // Substitua a URL do exemplo pela URL real para onde você deseja enviar os dados
-        var url = 'http://127.0.0.1:8080/characters';
+        var url = 'https://thankful-bone-production.up.railway.app/characters';
 
         // Realiza a requisição Fetch
         fetch(url, requestOptions)

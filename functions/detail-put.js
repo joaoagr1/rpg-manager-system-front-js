@@ -55,7 +55,7 @@ document.getElementById('informations').addEventListener('click', function () {
 
         return response.json(); // Se a resposta estiver em JSON
         // Outras opções: response.text(), response.blob(), etc.
-        
+
       })
       .then(data => {
         console.log('Resposta da API:', data);
@@ -67,14 +67,14 @@ document.getElementById('informations').addEventListener('click', function () {
       });
 
     window.location.reload()
-  }); 
+  });
 });
 
 
 
 document.getElementById('tableAttributes').addEventListener('click', function () {
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `http://localhost:8080/atributepoints/${idCharacter}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app/atributepoints/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -115,7 +115,7 @@ document.getElementById('editAttributesButton').addEventListener('click', functi
   var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
 
   // URL da API
-  const apiUrl = `http://localhost:8080/atributepoints/${characterId}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app/atributepoints/${characterId}`;
 
   // Corpo da requisição
   const requestBody = {
@@ -167,7 +167,7 @@ function fetchPutJournal() {
   var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
 
   // URL da API
-  const apiUrl = `http://localhost:8080/journal/${characterId}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app/journal/${characterId}`;
 
   // Corpo da requisição
   const requestBody = {
@@ -205,16 +205,16 @@ function fetchPutJournal() {
 
 
 
-function fetchPutFeatures(){
-  
-  
+function fetchPutFeatures() {
+
+
   editedFeatures = document.getElementById('editFeatures').value
   console.log("depuração: " + editedFeatures)
 
   var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
 
   // URL da API
-  const apiUrl = `http://localhost:8080/characters/${characterId}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app/characters/${characterId}`;
 
   // Corpo da requisição
   const requestBody = {
@@ -252,38 +252,38 @@ function fetchPutFeatures(){
 }
 
 
-document.getElementById('editSkillsButton').addEventListener('click', function() {
+document.getElementById('editSkillsButton').addEventListener('click', function () {
 
-    event.preventDefault();
-    console.log("Botao Funcionando")
-    newAcrocatics = document.getElementById('acrobaticsSkillEdit').value
-    newAnimalHandling = document.getElementById('animalHandlingSkillEdit').value
-    newArcana = document.getElementById('arcanaSkillEdit').value
-    newAthletics = document.getElementById('athleticsSkillEdit').value
-    newDeception = document.getElementById('deceptionSkillEdit').value
-    newHistory = document.getElementById('histoySkillEdit').value
-    newInsight = document.getElementById('insightSkillEdit').value
-    newIntimidation = document.getElementById('intimidationtSkillEdit').value
-    newInvestigation = document.getElementById('investigationSkillEdit').value
-    newMedicine = document.getElementById('medicineSkillEdit').value
-    newNature = document.getElementById('natureSkillEdit').value
-    newPerception = document.getElementById('perceptionSkillEdit').value
-    newPerformance = document.getElementById('performanceSkillEdit').value
-    newPersuasion = document.getElementById('persuasionSkillEdit').value
-    newReligion = document.getElementById('religionSkillEdit').value
-    newSleight_of_Hand = document.getElementById('sleightSkillEdit').value
-    newStealth = document.getElementById('stealthSkillEdit').value
-     newSurvival = document.getElementById('survivalSkillEdit').value
+  event.preventDefault();
+  console.log("Botao Funcionando")
+  newAcrocatics = document.getElementById('acrobaticsSkillEdit').value
+  newAnimalHandling = document.getElementById('animalHandlingSkillEdit').value
+  newArcana = document.getElementById('arcanaSkillEdit').value
+  newAthletics = document.getElementById('athleticsSkillEdit').value
+  newDeception = document.getElementById('deceptionSkillEdit').value
+  newHistory = document.getElementById('histoySkillEdit').value
+  newInsight = document.getElementById('insightSkillEdit').value
+  newIntimidation = document.getElementById('intimidationtSkillEdit').value
+  newInvestigation = document.getElementById('investigationSkillEdit').value
+  newMedicine = document.getElementById('medicineSkillEdit').value
+  newNature = document.getElementById('natureSkillEdit').value
+  newPerception = document.getElementById('perceptionSkillEdit').value
+  newPerformance = document.getElementById('performanceSkillEdit').value
+  newPersuasion = document.getElementById('persuasionSkillEdit').value
+  newReligion = document.getElementById('religionSkillEdit').value
+  newSleight_of_Hand = document.getElementById('sleightSkillEdit').value
+  newStealth = document.getElementById('stealthSkillEdit').value
+  newSurvival = document.getElementById('survivalSkillEdit').value
 
 
 
-    editedFeatures = document.getElementById('editFeatures').value
+  editedFeatures = document.getElementById('editFeatures').value
   console.log("depuração: " + editedFeatures)
 
   var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
 
   // URL da API
-  const apiUrl = `http://localhost:8080/skills/${characterId}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app/skills/${characterId}`;
 
   // Corpo da requisição
   const requestBody = {
@@ -335,8 +335,8 @@ document.getElementById('editSkillsButton').addEventListener('click', function()
     });
 
 
-})    
+})
 
 
 
-  
+

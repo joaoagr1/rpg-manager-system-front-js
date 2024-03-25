@@ -7,10 +7,10 @@ document.getElementById('postItemButton').addEventListener('click', function () 
 
     var characterId = localStorage.getItem('idCharacter');
 
-    let url = 'http://localhost:8080/items';
+    let url = 'https://thankful-bone-production.up.railway.app/items';
     let data = {
-        character_id: characterId,  
-        name: ItemNamePost, 
+        character_id: characterId,
+        name: ItemNamePost,
         description: ItemDescriptionPost
     };
 
@@ -21,29 +21,29 @@ document.getElementById('postItemButton').addEventListener('click', function () 
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 
 
-    setTimeout(function() {
+    setTimeout(function () {
         location.reload();
     }, 300); // Atraso de 2 segundos
 });
 
 
-function fetchAddSpell(){
+function fetchAddSpell() {
     characterId = localStorage.getItem('idCharacter');
     nomeSpell = document.getElementById('SpellNamePost').value;
     descriptionSpell = document.getElementById('descriptionSpellPost').value;
 
 
-    let url = 'http://localhost:8080/spells';
+    let url = 'https://thankful-bone-production.up.railway.app/spells';
     let data = {
-        character_id: characterId,  
-        name: nomeSpell, 
+        character_id: characterId,
+        name: nomeSpell,
         description: descriptionSpell
     };
 
@@ -54,14 +54,14 @@ function fetchAddSpell(){
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 
 
-    setTimeout(function() {
+    setTimeout(function () {
         location.reload();
     }, 300); // Atraso de 2 segundos
 }
@@ -106,17 +106,17 @@ function uploadFile() {
         var characterId = localStorage.getItem('idCharacter');
 
 
-        fetch(`http://localhost:8080/characters/uploadFoto/${characterId}`, {
+        fetch(`https://thankful-bone-production.up.railway.app/characters/uploadFoto/${characterId}`, {
             method: 'POST',
             body: formData
         })
-        .then(response => response.response())
-        .then(data => {
-            // Atualize a imagem src ou faça qualquer outra coisa com a resposta do servidor
-            console.log(data);
-            fotoPersonagem.src = data.url; // Supondo que o servidor retorna a URL da imagem
-        })
-        .catch(error => console.error('Erro ao enviar a imagem', error));
+            .then(response => response.response())
+            .then(data => {
+                // Atualize a imagem src ou faça qualquer outra coisa com a resposta do servidor
+                console.log(data);
+                fotoPersonagem.src = data.url; // Supondo que o servidor retorna a URL da imagem
+            })
+            .catch(error => console.error('Erro ao enviar a imagem', error));
     }
 
     location.reload()

@@ -13,7 +13,7 @@ document.getElementById('authenticationForm').addEventListener('submit', async f
     console.log(passwordRequest);
 
     try {
-        const response = await fetch(`http://localhost:8080/users/login?login=${loginRequest}&password=${passwordRequest}`);
+        const response = await fetch(`https://thankful-bone-production.up.railway.app/users/login?login=${loginRequest}&password=${passwordRequest}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -88,7 +88,7 @@ document.getElementById('createUserForm').addEventListener('submit', async funct
     };
 
     // URL da API
-    const apiUrl = 'http://localhost:8080/users';
+    const apiUrl = 'https://thankful-bone-production.up.railway.app/users';
 
     // Realiza a requisição POST
     fetch(apiUrl, requestOptions)
@@ -112,14 +112,14 @@ document.getElementById('createUserForm').addEventListener('submit', async funct
 
 
 
-document.addEventListener('DOMContentLoaded',function() {
+document.addEventListener('DOMContentLoaded', function () {
     var mensagemErro = localStorage.getItem('mensagemErro');
 
-// Se houver uma mensagem de erro, exiba-a e remova-a de localStorage
-if (mensagemErro) {
-    var elementoMensagemErro = document.getElementById('mensagemErro');
-    elementoMensagemErro.textContent = mensagemErro;
-    localStorage.removeItem('mensagemErro');
-}
-    
+    // Se houver uma mensagem de erro, exiba-a e remova-a de localStorage
+    if (mensagemErro) {
+        var elementoMensagemErro = document.getElementById('mensagemErro');
+        elementoMensagemErro.textContent = mensagemErro;
+        localStorage.removeItem('mensagemErro');
+    }
+
 })

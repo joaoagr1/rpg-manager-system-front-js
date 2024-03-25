@@ -7,37 +7,37 @@ window.onload = function () {
   fetchAttributesData();
   fetchProficiency()
   fetchJournal();
-  
+
 };
 
 
 idCharacter = localStorage.getItem('idCharacter');
-const endpoint = `http://localhost:8080/characters/foto/${idCharacter}`;
+const endpoint = `https://thankful-bone-production.up.railway.app/characters/foto/${idCharacter}`;
 
 // Referencie a tag <img> pelo ID
 const imgElement = document.getElementById('fotoPersonagem');
 
 // Faça uma requisição para o endpoint
 fetch(endpoint)
-    .then(response => {
-        if (response.ok) {
-            // Se a resposta for bem-sucedida, defina a src da imagem como a URL retornada
-            imgElement.src = response.url;
-        } else {
-            // Se a resposta não for encontrada (404), defina a src da imagem como a URL padrão
-            imgElement.src = '../assets/images/default-avatar-img.jpg';
-        }
-    })
-    .catch(error => {
-        console.error('Erro ao carregar a imagem:', error);
-        // Em caso de erro, defina a src da imagem como a URL padrão
-        imgElement.src = '../assets/images/default-avatar-img.jpg';
-    });
+  .then(response => {
+    if (response.ok) {
+      // Se a resposta for bem-sucedida, defina a src da imagem como a URL retornada
+      imgElement.src = response.url;
+    } else {
+      // Se a resposta não for encontrada (404), defina a src da imagem como a URL padrão
+      imgElement.src = '../assets/images/default-avatar-img.jpg';
+    }
+  })
+  .catch(error => {
+    console.error('Erro ao carregar a imagem:', error);
+    // Em caso de erro, defina a src da imagem como a URL padrão
+    imgElement.src = '../assets/images/default-avatar-img.jpg';
+  });
 
 
 function fetchProfileData() {
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `http://localhost:8080/characters/${idCharacter}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app/characters/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -82,7 +82,7 @@ function fetchProfileData() {
 
 function fetchItems() {
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `http://localhost:8080/items/${idCharacter}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app/items/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -106,7 +106,7 @@ function fetchItems() {
 
 function fetchSpells() {
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `http://localhost:8080/spells/${idCharacter}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app/spells/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -130,7 +130,7 @@ function fetchSpells() {
 
 function fetchJournal() {
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `http://localhost:8080/journal/${idCharacter}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app/journal/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -166,7 +166,7 @@ $('#descriptionModal').on('show.bs.modal', function (event) {
 function fetchAttributesData() {
   // Substitua a URL abaixo pela sua URL de API
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `http://localhost:8080/atributepoints/${idCharacter}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app/atributepoints/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -184,7 +184,7 @@ function fetchAttributesData() {
         'Cha 🎭': data[0].charisma,
         'Per 🔎': data[0].passivePerception,
       };
-      
+
       const table = document.getElementById('attributesTable');
 
       for (const attribute in attributes) {
@@ -224,12 +224,12 @@ function fetchProficiency() {
 }
 
 
-function fetchSkills(){
+function fetchSkills() {
   console.log("ARCANA: ")
 
 
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `http://localhost:8080/skills/${idCharacter}`;
+  const apiUrl = `https://thankful-bone-production.up.railway.app:8080/skills/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -292,7 +292,7 @@ function fetchSkills(){
       document.getElementById('survivalSkillEdit').value = data[0].survival;
 
 
-      
+
     })
     .catch(error => console.error('Erro ao obter dados do Journal:', error));
 
