@@ -22,7 +22,7 @@ document.getElementById('informations').addEventListener('click', function () {
     idCharacter = localStorage.getItem('idCharacter');
 
     // URL da API ou servidor para onde você está enviando a requisição
-    const url = `http://localhost:8080/characters/${idCharacter}`;
+    const url = `https://thankful-bone-production.up.railway.app/characters/${idCharacter}`;
 
     // Corpo da requisição (pode ser um objeto JavaScript)
     const corpoRequisicao = {
