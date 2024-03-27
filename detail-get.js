@@ -286,8 +286,8 @@ function fetchSkills() {
       document.getElementById('religionSkill').textContent = data[0].religion;
       document.getElementById('religionSkillEdit').value = data[0].religion;
 
-      document.getElementById('sleightSkill').textContent = data[0].sleight_of_Hand;
-      document.getElementById('sleightSkillEdit').value = data[0].sleight_of_Hand;
+      document.getElementById('sleightSkill').textContent = data[0].sleight_of_hand;
+      document.getElementById('sleightSkillEdit').value = data[0].sleight_of_hand;
 
       document.getElementById('stealthSkill').textContent = data[0].stealth;
       document.getElementById('stealthSkillEdit').value = data[0].stealth;

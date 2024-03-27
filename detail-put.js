@@ -302,7 +302,7 @@ document.getElementById('editSkillsButton').addEventListener('click', function (
     performance: `${newPerformance}`,
     persuasion: `${newPersuasion}`,
     religion: `${newReligion}`,
-    sleight_of_Hand: `${newSleight_of_Hand}`,
+    sleight_of_hand: `${newSleight_of_Hand}`,
     stealth: `${newStealth}`,
     survival: `${newSurvival}`
 
