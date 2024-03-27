@@ -5,7 +5,7 @@ function deleteSpell() {
   var item_id = localStorage.getItem('item_id');
   var deleted_id = localStorage.getItem('deleted_id')
   // Definir a URL da API
-  var apiUrl = `https://thankful-bone-production.up.railway.app/${path}/${deleted_id}`;
+  var apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/${path}/${deleted_id}`;
   console.log(path)
 
   // Adicionar um alerta de confirmação
