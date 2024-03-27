@@ -25,13 +25,13 @@ fetch(endpoint)
       imgElement.src = response.url;
     } else {
       // Se a resposta não for encontrada (404), defina a src da imagem como a URL padrão
-      imgElement.src = '../assets/images/default-avatar-img.jpg';
+      imgElement.src = 'default-avatar-img.jpg';
     }
   })
   .catch(error => {
     console.error('Erro ao carregar a imagem:', error);
     // Em caso de erro, defina a src da imagem como a URL padrão
-    imgElement.src = '../assets/images/default-avatar-img.jpg';
+    imgElement.src = 'default-avatar-img.jpg';
   });
 
 
