@@ -13,7 +13,7 @@ function fetchCharacters() {
             const characterTableBody = document.getElementById('characterTableBody');
             characterTableBody.innerHTML = '';
             data.forEach(character => {
-                const idCharacter = character.character_id;
+                const idCharacter = character.characterId;
                 console.log(idCharacter)
                 const row = document.createElement('tr');
                 row.addEventListener('click', function () {

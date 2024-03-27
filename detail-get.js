@@ -8,6 +8,10 @@ window.onload = function () {
   fetchProficiency()
   fetchJournal();
 
+  characteriden = localStorage.getItem('idCharacter')
+  console.log(`Iden do persoangem: ${characteriden}`);
+
+
 };
 
 
