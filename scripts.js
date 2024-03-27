@@ -13,7 +13,7 @@ document.getElementById('authenticationForm').addEventListener('submit', async f
     console.log(passwordRequest);
 
     try {
-        const response = await fetch(`https://thankful-bone-production.up.railway.app/users/login?login=${loginRequest}&password=${passwordRequest}`);
+        const response = await fetch(`https://rpg-manager-system-api-java-production.up.railway.app/users/login?login=${loginRequest}&password=${passwordRequest}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -88,7 +88,7 @@ document.getElementById('createUserForm').addEventListener('submit', async funct
     };
 
     // URL da API
-    const apiUrl = 'https://thankful-bone-production.up.railway.app/users';
+    const apiUrl = 'https://rpg-manager-system-api-java-production.up.railway.app/users';
 
     // Realiza a requisição POST
     fetch(apiUrl, requestOptions)

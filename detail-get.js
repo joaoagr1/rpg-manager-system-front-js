@@ -166,7 +166,7 @@ $('#descriptionModal').on('show.bs.modal', function (event) {
 function fetchAttributesData() {
   // Substitua a URL abaixo pela sua URL de API
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `https://thankful-bone-production.up.railway.app/atributepoints/${idCharacter}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/atributepoints/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -229,7 +229,7 @@ function fetchSkills() {
 
 
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `https://thankful-bone-production.up.railway.app:8080/skills/${idCharacter}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/skills/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())

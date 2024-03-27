@@ -7,7 +7,7 @@ document.getElementById('postItemButton').addEventListener('click', function () 
 
     var characterId = localStorage.getItem('idCharacter');
 
-    let url = 'https://thankful-bone-production.up.railway.app/items';
+    let url = 'https://rpg-manager-system-api-java-production.up.railway.app/items';
     let data = {
         character_id: characterId,
         name: ItemNamePost,
@@ -40,7 +40,7 @@ function fetchAddSpell() {
     descriptionSpell = document.getElementById('descriptionSpellPost').value;
 
 
-    let url = 'https://thankful-bone-production.up.railway.app/spells';
+    let url = 'https://rpg-manager-system-api-java-production.up.railway.app/spells';
     let data = {
         character_id: characterId,
         name: nomeSpell,
@@ -106,7 +106,7 @@ function uploadFile() {
         var characterId = localStorage.getItem('idCharacter');
 
 
-        fetch(`https://thankful-bone-production.up.railway.app/characters/uploadFoto/${characterId}`, {
+        fetch(`https://rpg-manager-system-api-java-production.up.railway.app/characters/uploadFoto/${characterId}`, {
             method: 'POST',
             body: formData
         })

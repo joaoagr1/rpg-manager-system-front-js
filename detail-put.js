@@ -22,7 +22,7 @@ document.getElementById('informations').addEventListener('click', function () {
     idCharacter = localStorage.getItem('idCharacter');
 
     // URL da API ou servidor para onde você está enviando a requisição
-    const url = `https://thankful-bone-production.up.railway.app/characters/${idCharacter}`;
+    const url = `https://rpg-manager-system-api-java-production.up.railway.app/characters/${idCharacter}`;
 
     // Corpo da requisição (pode ser um objeto JavaScript)
     const corpoRequisicao = {
@@ -74,7 +74,7 @@ document.getElementById('informations').addEventListener('click', function () {
 
 document.getElementById('tableAttributes').addEventListener('click', function () {
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `https://thankful-bone-production.up.railway.app/atributepoints/${idCharacter}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/atributepoints/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -115,7 +115,7 @@ document.getElementById('editAttributesButton').addEventListener('click', functi
   var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
 
   // URL da API
-  const apiUrl = `https://thankful-bone-production.up.railway.app/atributepoints/${characterId}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/atributepoints/${characterId}`;
 
   // Corpo da requisição
   const requestBody = {
@@ -167,7 +167,7 @@ function fetchPutJournal() {
   var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
 
   // URL da API
-  const apiUrl = `https://thankful-bone-production.up.railway.app/journal/${characterId}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/journal/${characterId}`;
 
   // Corpo da requisição
   const requestBody = {
@@ -214,7 +214,7 @@ function fetchPutFeatures() {
   var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
 
   // URL da API
-  const apiUrl = `https://thankful-bone-production.up.railway.app/characters/${characterId}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/characters/${characterId}`;
 
   // Corpo da requisição
   const requestBody = {
@@ -283,7 +283,7 @@ document.getElementById('editSkillsButton').addEventListener('click', function (
   var characterId = localStorage.getItem('idCharacter');  // Substitua pelo ID real do personagem
 
   // URL da API
-  const apiUrl = `https://thankful-bone-production.up.railway.app/skills/${characterId}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/skills/${characterId}`;
 
   // Corpo da requisição
   const requestBody = {
