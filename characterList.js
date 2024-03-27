@@ -102,7 +102,7 @@ function confirmarExclusao() {
 
 
 document.getElementById('infoCharacter').addEventListener('click', function () {
-    window.location.href = '../pages/detail.html';
+    window.location.href = 'detail.html';
 });
 
 
