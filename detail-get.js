@@ -12,7 +12,7 @@ window.onload = function () {
 
 
 idCharacter = localStorage.getItem('idCharacter');
-const endpoint = `https://thankful-bone-production.up.railway.app/characters/foto/${idCharacter}`;
+const endpoint = `https://rpg-manager-system-api-java-production.up.railway.app/characters/foto/${idCharacter}`;
 
 // Referencie a tag <img> pelo ID
 const imgElement = document.getElementById('fotoPersonagem');
@@ -37,7 +37,7 @@ fetch(endpoint)
 
 function fetchProfileData() {
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `https://thankful-bone-production.up.railway.app/characters/${idCharacter}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/characters/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -82,7 +82,7 @@ function fetchProfileData() {
 
 function fetchItems() {
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `https://thankful-bone-production.up.railway.app/items/${idCharacter}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/items/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -106,7 +106,7 @@ function fetchItems() {
 
 function fetchSpells() {
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `https://thankful-bone-production.up.railway.app/spells/${idCharacter}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/spells/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -130,7 +130,7 @@ function fetchSpells() {
 
 function fetchJournal() {
   idCharacter = localStorage.getItem('idCharacter');
-  const apiUrl = `https://thankful-bone-production.up.railway.app/journal/${idCharacter}`;
+  const apiUrl = `https://rpg-manager-system-api-java-production.up.railway.app/journal/${idCharacter}`;
 
   fetch(apiUrl)
     .then(response => response.json())
