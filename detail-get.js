@@ -242,15 +242,15 @@ function fetchSkills() {
       document.getElementById('acrobaticsSkill').textContent = data[0].acrobatics;
       document.getElementById('acrobaticsSkillEdit').value = data[0].acrobatics;
 
-      document.getElementById('animal-handingSkill').textContent = data[0].animal_Handling;
-      document.getElementById('animalHandlingSkillEdit').value = data[0].animal_Handling;
+      document.getElementById('animal-handingSkill').textContent = data[0].animalHandling;
+      document.getElementById('animalHandlingSkillEdit').value = data[0].animalHandling;
 
       document.getElementById('arcanaSkill').textContent = data[0].arcana;
       document.getElementById('arcanaSkillEdit').value = data[0].arcana;
 
 
       document.getElementById('athleticsSkill').textContent = data[0].athletics;
-      document.getElementById('athleticsSkillEdit').value = data[0].animal_Handling;
+      document.getElementById('athleticsSkillEdit').value = data[0].athletics;
 
       document.getElementById('deceptionSkill').textContent = data[0].deception;
       document.getElementById('deceptionSkillEdit').value = data[0].deception;
@@ -286,8 +286,10 @@ function fetchSkills() {
       document.getElementById('religionSkill').textContent = data[0].religion;
       document.getElementById('religionSkillEdit').value = data[0].religion;
 
-      document.getElementById('sleightSkill').textContent = data[0].sleight_of_hand;
-      document.getElementById('sleightSkillEdit').value = data[0].sleight_of_hand;
+      document.getElementById('sleightSkill').textContent = data[0].sleightOfHand;
+      document.getElementById('sleightSkillEdit').value = data[0].sleightOfHand;
+      
+      console.log(data)
 
       document.getElementById('stealthSkill').textContent = data[0].stealth;
       document.getElementById('stealthSkillEdit').value = data[0].stealth;
