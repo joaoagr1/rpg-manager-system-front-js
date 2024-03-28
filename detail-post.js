@@ -55,14 +55,16 @@ function fetchAddSpell() {
         body: JSON.stringify(data)
     })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {console.log(data)
+
+            })
         .catch((error) => {
             console.error('Error:', error);
         });
 
 
     setTimeout(function () {
-        location.reload();
+       // location.reload();
     }, 300); // Atraso de 2 segundos
 }
 
@@ -110,7 +112,7 @@ function uploadFile() {
             method: 'POST',
             body: formData
         })
-            .then(response => response.response())
+            //.then(response => response.response())
             .then(data => {
                 // Atualize a imagem src ou faça qualquer outra coisa com a resposta do servidor
                 console.log(data);
@@ -119,5 +121,9 @@ function uploadFile() {
             .catch(error => console.error('Erro ao enviar a imagem', error));
     }
 
-    location.reload()
+   // location.reload()
 }
+
+
+
+

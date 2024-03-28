@@ -1,3 +1,4 @@
+
 function deleteSpell() {
   // Pegar o spell_id do localStorage
   var spell_id = localStorage.getItem('spell_id');
@@ -11,30 +12,30 @@ function deleteSpell() {
   // Adicionar um alerta de confirmação
   var confirmDelete = window.confirm("Tem certeza de que deseja deletar?");
   if (confirmDelete) {
-    // Fazer a requisição DELETE  
-    fetch(apiUrl, {
-      method: 'DELETE',
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-          window.location.reload()
-
-        }
-        return response.json();
+      // Fazer a requisição DELETE  
+      fetch(apiUrl, {
+        method: 'DELETE',
       })
-      .then(data => {
-        console.log('Spell deletado com sucesso:', data);
-
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+            window.location.reload()
+    
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Spell deletado com sucesso:', data);
+          
       })
-      .catch(error => {
-        console.error('Erro ao deletar o Spell:', error);
-        setTimeout(function () {
-          location.reload();
-        }, 300); // Atraso de 2 segundos  
-      });
+        .catch(error => {
+          console.error('Erro ao deletar o Spell:', error);
+          setTimeout(function() {
+            location.reload();
+          }, 300); // Atraso de 2 segundos  
+        });
   } else {
-    console.log("Deleção cancelada.");
+      console.log("Deleção cancelada.");
   }
 }
 

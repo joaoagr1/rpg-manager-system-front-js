@@ -98,8 +98,9 @@ function fetchItems() {
       data.forEach(item => {
         const row = document.createElement('tr');
         row.innerHTML = `
-                            <td class="item-name" data-toggle="modal" data-target="#descriptionModal" data-characteritems_id="${item.characteritems_id}" data-description="${item.description}">${item.name}</td>
+                            <td class="item-name" data-toggle="modal" data-target="#descriptionModal" data-characteritems_id="${item.characterItemsId}" data-description="${item.description}">${item.name}</td>
                         `;
+                        console.log(console.log(JSON.stringify(item)))
         itemsTableBody.appendChild(row);
       });
     })
@@ -115,8 +116,8 @@ function fetchSpells() {
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      console.log("speel id: " + data.spell_id)
-
+      console.log("speeeeeeeeeeeeeel id: " + data[0].spellId)
+      console.log("OLHA A DATA: "+ JSON.stringify(data))
       const spellsTableBody = document.getElementById('spellsTableBody');
 
       spellsTableBody.innerHTML = '';
@@ -124,9 +125,10 @@ function fetchSpells() {
       data.forEach(spell => {
         const row = document.createElement('tr');
         row.innerHTML = `
-                            <td class="spell-name" data-toggle="modal" data-target="#descriptionModal" data-description="${spell.description}" data-spell_id="${spell.spell_id}">${spell.name}</td>
+                            <td class="spell-name" data-toggle="modal" data-target="#descriptionModal" data-description="${spell.description}" data-spell_id="${spell.spellId}">${spell.name}</td>
                         `;
         spellsTableBody.appendChild(row);
+        console.log("vamo ve se essa lista vai: "+spell.spell_id)
       });
     })
     .catch(error => console.error('Erro ao obter dados de Spells:', error));
@@ -150,6 +152,7 @@ function fetchJournal() {
 // Exibir a descrição no modal ao clicar no nome do item ou spell
 $('#descriptionModal').on('show.bs.modal', function (event) {
   const button = $(event.relatedTarget);
+  console.log("AGRE VAI?"+JSON.stringify(button));
   const description = button.data('description');
   const modal = $(this);
   modal.find('.modal-body #descriptionContent').text(description);
@@ -159,6 +162,7 @@ $('#descriptionModal').on('show.bs.modal', function (event) {
   console.log(item_id)
 
   localStorage.setItem('spell_id', spell_id);
+  console.log("SPELL ID: "+spell_id)
   localStorage.setItem('item_id', item_id)
   characterName = localStorage.getItem('characterName')
   console.log(characterName)
